@@ -26,34 +26,30 @@
 
 	<p:code>
 		<div class="exanpe-skin">
-			...		
+			 <b>Grid :</b><br/>	
+			 
+			 <div class="gridExampleWrapper">
+			 	<t:grid source="users" row="iteUser" rowsPerPage="10" pagerPosition="bottom" />
+			 </div>
+			 <hr/>
+			 
+			 <b>Autocomplete :</b><br/>	
+			 <t:form>
+				Type in a country name:
+				<input t:id="countryName" t:type="TextField" t:mixins="autocomplete" t:value="country"/>
+			</t:form>
+			<hr/>
+			
+			<b>Palette :</b><br/>	
+			<t:form>
+				<t:palette t:id="handling" encoder="encoder" model="model" selected="selected"
+				select="asset:classpath:fr/exanpe/t5/lib/components/img/t5/select.png" deselect="asset:classpath:fr/exanpe/t5/lib/components/img/t5/deselect.png"/>
+			</t:form>
+			<hr/>
+			
+			<b>Bean Editform :</b><br/>	
+			<t:beaneditform t:id="user" object="userEdit"/>
 		</div>
 	</p:code>
-    
-    <div class="exanpe-skin">
-		 <b>Grid :</b><br/>	
-		 
-		 <div class="gridExampleWrapper">
-		 	<t:grid source="users" row="iteUser" rowsPerPage="10" pagerPosition="bottom" />
-		 </div>
-		 <hr/>
-		 
-		 <b>Autocomplete :</b><br/>	
-		 <t:form>
-			Type in a country name:
-			<input t:id="countryName" t:type="TextField" t:mixins="autocomplete" t:value="country"/>
-		</t:form>
-		<hr/>
-		
-		<b>Palette :</b><br/>	
-		<t:form>
-            <t:palette t:id="handling" encoder="encoder" model="model" selected="selected"
-            select="asset:classpath:fr/exanpe/t5/lib/components/img/t5/select.png" deselect="asset:classpath:fr/exanpe/t5/lib/components/img/t5/deselect.png"/>
-         </t:form>
-         <hr/>
-		
-		<b>Bean Editform :</b><br/>	
-		<t:beaneditform t:id="user" object="userEdit"/>
-	</div>
     
 </html>

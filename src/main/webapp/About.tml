@@ -2,6 +2,9 @@
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
       xmlns:p="tapestry:parameter">
 
-    <p>About exanpe-t5-demo application ...</p>
+    <p>
+    This application has been developped by the exanpe team.<br/>
+    It is currently hosted on Google App Engine and can be accessed to <a href="http://exanpe-t5-lib.appspot.com/">http://exanpe-t5-lib.appspot.com/</a>.<br/>
+    </p>
 
 </html>

@@ -22,7 +22,7 @@ Description: A Web 2.0 design with fluid width suitable for blogs and small webs
         <div id="header">
             <div id="logo">
                 <h1>
-                    <t:pagelink page="index">fr.exanpe:exanpe-t5-demo</t:pagelink>
+                    <a href="https://github.com/exanpe/exanpe-t5-lib">fr.exanpe:exanpe-t5-lib</a>
                 </h1>
             </div>
             <div id="menu">
