@@ -1,0 +1,59 @@
+<html t:type="componentDemoLayout" title="Exanpe Skin"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+	<style type="text/css">
+		.gridExampleWrapper {
+			width: 268px;
+		}
+		/** Hack for IE7... */
+		*+html .gridExampleWrapper {
+			width: 255px;
+		}
+	</style>
+
+   <p:description>
+   		This page displays the core Tapestry components skinned with the Exanpe graphic style.<br/>
+   		These components are not working properly. Just here to show their look.<br/>
+   		So easy to set up : 
+   		<ul>
+   			<li>Add a HTML tag with <b>class="exanpe-skin"</b>  anywhere around the component to skin</li>
+   			<li>Import our CSS stylesheet in the Page you want to reskin : <b>@Import(stylesheet = "$ {exanpe.asset-base}/css/exanpe-t5-lib-skin.css")</b></li>
+   			<li>No conflict ! Skin only what you want to skin</li>
+   		</ul> 
+   </p:description>
+
+	<p:code>
+		<div class="exanpe-skin">
+			...		
+		</div>
+	</p:code>
+    
+    <div class="exanpe-skin">
+		 <b>Grid :</b><br/>	
+		 
+		 <div class="gridExampleWrapper">
+		 	<t:grid source="users" row="iteUser" rowsPerPage="10" pagerPosition="bottom" />
+		 </div>
+		 <hr/>
+		 
+		 <b>Autocomplete :</b><br/>	
+		 <t:form>
+			Type in a country name:
+			<input t:id="countryName" t:type="TextField" t:mixins="autocomplete" t:value="country"/>
+		</t:form>
+		<hr/>
+		
+		<b>Palette :</b><br/>	
+		<t:form>
+            <t:palette t:id="handling" encoder="encoder" model="model" selected="selected"
+            select="asset:classpath:fr/exanpe/t5/lib/components/img/t5/select.png" deselect="asset:classpath:fr/exanpe/t5/lib/components/img/t5/deselect.png"/>
+         </t:form>
+         <hr/>
+		
+		<b>Bean Editform :</b><br/>	
+		<t:beaneditform t:id="user" object="userEdit"/>
+	</div>
+    
+</html>

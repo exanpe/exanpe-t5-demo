@@ -1,0 +1,28 @@
+<html t:type="componentDemoLayout" title="Slider demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This example shows a vertical oriented Slider.<br/>
+   		Every horizontal customization can be applied to a vertical slider.
+   </p:description>
+
+	<p:code>
+		<t:form>
+			<ex:slider t:id="slider" value="sliderValue" orientation="vertical"/>
+	
+			<t:submit/>
+		</t:form>
+		Submitted value : ${sliderValue}<br/>
+	</p:code>
+	
+	<p:javacode><![CDATA[
+    @Property
+    @Persist
+    private int sliderValue;
+	]]></p:javacode>
+	
+    
+    
+</html>

@@ -1,0 +1,25 @@
+<html t:type="componentDemoLayout" title="Tooltip demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page displays a Tooltip automatically configured through its id.<br/>
+   		Notice the page's resources file containing a well formed key.
+   </p:description>
+
+	<p:code>
+		<ex:tooltip t:id="tooltip">
+			Mouseover this text
+		</ex:tooltip>
+	</p:code>
+	
+	<p:notice>
+		Property file :
+		<t:highlightBody type="ini">
+		tooltip-tooltip=This is the tooltip content
+		</t:highlightBody>
+	</p:notice>
+    
+    
+</html>

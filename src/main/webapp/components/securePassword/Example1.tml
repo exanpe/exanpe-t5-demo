@@ -1,0 +1,35 @@
+<html t:type="componentDemoLayout" title="Secure Password demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page displays a basic SecurePassword.<br/>
+   		Click a number to record it.<br/>
+   		It is bound to a Page variable to submit the value (parameter <b>value</b>).<br/>
+   		It has to be enclosed inside a t:form component.
+   </p:description>
+
+	<p:code>
+		<t:form>
+			<ex:securePassword value="passwordValue"/>
+			Value sent : ${prop:val}<br/>
+			<t:submit/>
+		</t:form>
+	</p:code>
+    
+    <p:javacode><![CDATA[
+	    @Property
+	    private String passwordValue;
+
+	    @Persist(PersistenceConstants.FLASH)
+	    @Property
+	    private String val;
+
+	    void onSubmit()
+	    {
+	        val = passwordValue;
+	    }
+    ]]></p:javacode>
+    
+</html>

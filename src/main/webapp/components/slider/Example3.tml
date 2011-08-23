@@ -1,0 +1,29 @@
+<html t:type="componentDemoLayout" title="Slider demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This example shows a Slider component that displays its value in a custom element.<br/>
+   		Notice here the <b>displayId</b> attribute.
+   </p:description>
+
+	<p:code>
+		You are about to select the value <span id="sliderCurrent"> </span>, just press submit.<br/>
+		<t:form>
+			<ex:slider t:id="slider" value="sliderValue" min="0" max="10" displayId="sliderCurrent"/>
+	
+			<t:submit/>
+		</t:form>
+		Submitted value : ${sliderValue}<br/>
+	</p:code>
+	
+	<p:javacode><![CDATA[
+    @Property
+    @Persist
+    private int sliderValue;
+	]]></p:javacode>
+	
+    
+    
+</html>

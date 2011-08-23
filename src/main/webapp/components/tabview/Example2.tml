@@ -1,0 +1,31 @@
+<html t:type="componentDemoLayout" title="TabView demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page displays a basic Tab View.<br/>
+   		This TabView is said as "client side", meaning all the tabs <b>are</b> loaded on page load.<br/>
+   		Notice the <b>loadAll</b> attribute.<br/>
+   		It does NOT keep its state on page refresh.
+   </p:description>
+
+	<p:code>
+		<ex:tabview t:id="tabv" defaultActiveTabId="tab1" loadAll="true">
+	  		<ex:tab t:id="tab1" t:title="literal:Tab 1">
+	  			This is my tab 1 <br/>1<br/>1<br/><br/><br/>
+	  			content 1
+	  		</ex:tab>
+	  		<ex:tab t:id="tab2" t:title="literal:Tab 2">
+	  			This is my tab 2 <br/>2<br/>2<br/><br/><br/>
+	  			content 2
+	  		</ex:tab>
+  			<ex:tab t:id="tab3" t:title="literal:Tab 3">
+	  			This is my tab 3 <br/>3<br/>3<br/><br/><br/>
+	  			content 3
+	  		</ex:tab>
+	  	</ex:tabview> 
+	</p:code>
+    
+    
+</html>

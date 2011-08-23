@@ -1,0 +1,26 @@
+<html t:type="componentDemoLayout" title="Tooltip demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page displays a Tooltip containing some rich content declared in the page.<br/>
+   		Notice the block <b>tooltipBlock</b> in the page. It will automatically loaded in the tooltip.<br/>
+   		This block is reusable among several tooltips. 
+   </p:description>
+
+	<p:code>
+		<ex:tooltip t:id="tooltip" blockId="tooltipContent">
+			Mouseover this text
+		</ex:tooltip>
+		<br/>
+		<ex:tooltip t:id="tooltip2" blockId="tooltipContent">
+			Mouseover this other text
+		</ex:tooltip>
+		
+		<t:block id="tooltipContent">
+			<b>Thats a tooltip said <span style="color:red">RICH</span></b>
+		</t:block>
+	</p:code>    
+    
+</html>

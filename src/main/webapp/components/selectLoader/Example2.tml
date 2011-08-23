@@ -1,0 +1,33 @@
+<html t:type="componentDemoLayout" title="Select Loader demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page displays the SelectLoader mixin, chaining 3 selects.
+   </p:description>
+
+	<p:code>
+		<t:form>
+			<t:select t:mixins="exanpe/selectLoader" t:targetId="city" t:id="country" model="country" value="countryValue" encoder="countryEncoder"/>
+	
+			<t:select t:mixins="exanpe/selectLoader" t:targetId="type" t:id="city" model="city" value="cityValue"/>
+			
+			<t:select t:id="type" model="type" value="typeValue"/>
+			
+			<t:submit/>
+		</t:form>
+		Submitted country : ${countryValue }<br/>
+		Submitted city : ${cityValue }<br/>
+		Submitted type : ${typeValue }<br/>
+	</p:code>
+	
+	<p:javacode><![CDATA[
+    	@OnEvent(value = ExanpeEventConstants.SELECTLOADER_EVENT, component = "country")
+    	public SelectModel populateSelect(String value)
+    	 ...
+    	@OnEvent(value = ExanpeEventConstants.SELECTLOADER_EVENT, component = "city")
+    	public SelectModel populateSelectType(String value)
+	]]></p:javacode>
+	
+</html>

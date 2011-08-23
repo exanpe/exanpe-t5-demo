@@ -1,0 +1,25 @@
+<html t:type="componentDemoLayout" title="Dialog demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page displays a dialog component with its title and message customized.<br/>
+		Keys have been declared into this page's resources file and automatically get from the injected component's id.<br/>
+		Notice the <b>t:id="link1"</b> attribute.
+   </p:description>
+
+	<p:code>
+		<t:pagelink t:id="link1" page="Index" 
+			t:mixins="exanpe/dialog" t:renderMode="info">Go to index</t:pagelink>
+	</p:code>
+    
+    <p:notice>
+    	These keys are defined in the property file of the current page :<br/><br/>
+    	<t:highlightBody type="ini">
+    		link1-title=Information
+			link1-message=This link is currently not active
+    	</t:highlightBody>
+    </p:notice>
+    
+</html>

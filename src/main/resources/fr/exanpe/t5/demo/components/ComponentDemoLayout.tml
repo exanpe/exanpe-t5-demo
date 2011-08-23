@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" title="prop:title"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+      
+      <div class="description">
+      	Description
+      </div>
+      <t:delegate to="description"/>
+      <br/><br/><br/>
+      
+      <t:if test="code"> 
+	  	  <div class="inaction">
+	  	  	In Action
+	  	  </div>
+	      <t:delegate to="code"/>
+	      <br/><br/><br/>
+	      
+	      <div class="tmlSource">
+	      	TML Source code
+	      </div>
+	      <t:highlightTMLPage/>
+	      <br/><br/><br/>
+      </t:if>
+      
+      <t:body/>
+      
+      <t:if test="javacode">
+	      <div class="javacode">
+	      	Java code
+	      </div>
+	      <t:highlightBody type="java">
+	      	<t:delegate to="javacode"/>
+	      </t:highlightBody>
+	      <br/>
+      </t:if>
+      
+      <t:if test="notice">
+      	<div class="notice">
+      		Notice
+      	</div>
+      	<t:delegate to="notice"/>
+      	<br/>
+      </t:if>
+     
+</html>

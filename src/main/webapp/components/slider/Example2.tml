@@ -1,0 +1,29 @@
+<html t:type="componentDemoLayout" title="Slider demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This example shows a Slider component with imposed values to choose, chosen from an interval.<br/>
+   		The min and max values have been specified.<br/>
+   		Notice the <b>interval</b>, <b>min</b> and <b>max</b> attributes.
+   </p:description>
+
+	<p:code>
+		<t:form>
+			<ex:slider t:id="slider" value="sliderValue" min="0" max="10" interval="0.1"/>
+	
+			<t:submit/>
+		</t:form>
+		Submitted value : ${sliderValue}<br/>
+	</p:code>
+	
+	<p:javacode><![CDATA[
+    @Property
+    @Persist
+    private float sliderValue;
+	]]></p:javacode>
+	
+    
+    
+</html>

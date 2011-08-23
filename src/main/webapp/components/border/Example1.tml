@@ -1,0 +1,17 @@
+<html t:type="componentDemoLayout" title="Border demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page displays a simple border. <br/>
+   		Nothing special provided by the component.
+   </p:description>
+
+	<p:code>
+		<ex:border>
+			This text is wrapped inside a border.
+		</ex:border>
+	</p:code>
+    
+</html>

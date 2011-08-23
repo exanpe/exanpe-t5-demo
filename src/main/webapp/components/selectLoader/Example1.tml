@@ -1,0 +1,74 @@
+<html t:type="componentDemoLayout" title="Select Loader demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page displays the SelectLoader mixin.<br/>
+   		Notice the <b>t:mixins</b> associated to the <b>t:targetId</b> attribute.
+   </p:description>
+
+	<p:code>
+		<t:form>
+			<t:select t:mixins="exanpe/selectLoader" t:targetId="city" t:id="country" model="country" value="countryValue" encoder="countryEncoder"/>
+	
+			<t:select t:id="city" model="city" value="cityValue"/>
+			
+			<t:submit/>
+		</t:form>
+		Submitted country : ${countryValue }<br/>
+		Submitted city : ${cityValue }<br/>
+	</p:code>
+	
+	<p:javacode><![CDATA[
+    @Property
+    private SelectModel country;
+
+    @Property
+    @Persist(PersistenceConstants.FLASH)
+    private CountryEnum countryValue;
+
+    @Property
+    @Persist(PersistenceConstants.FLASH)
+    private SelectModel city;
+
+    @Property
+    @Persist(PersistenceConstants.FLASH)
+    private String cityValue;
+
+    @SetupRender
+    public void ini()
+    {
+        country = new EnumSelectModel(CountryEnum.class, messages);
+        if (city == null)
+            city = new SelectModelImpl(new OptionModelImpl[0]);
+    }
+
+    public void onSubmit()
+    {
+        if (countryValue != null)
+        	city = populateSelect(countryValue.toString());
+    }
+
+    @OnEvent(value = ExanpeEventConstants.SELECTLOADER_EVENT)
+    public SelectModel populateSelect(String value)
+    {
+    	if (StringUtils.isEmpty(value))
+            return null;
+    
+        String[] cities = dataService.getCitiesFromCountry(CountryEnum.valueOf(value));
+
+        OptionModel[] om = new OptionModel[cities.length];
+
+        for (int i = 0; i &lt; cities.length; i++)
+            om[i] = new OptionModelImpl(cities[i]);
+
+        city = new SelectModelImpl(om);
+
+        return city;
+    }
+	]]></p:javacode>
+	
+    
+    
+</html>

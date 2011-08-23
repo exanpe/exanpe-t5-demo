@@ -1,0 +1,19 @@
+<html t:type="componentDemoLayout" title="Accordion demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page shows a standard accordion, with a title and the first item opened.
+   </p:description>
+
+	<p:code>
+		<ex:accordion t:id="accordion" t:title="literal:Title">
+			<ex:accordionItem title="literal:title1" content="literal:content1" opened="true"/>
+			<ex:accordionItem title="literal:title2">
+			Content coded in body
+			</ex:accordionItem>
+		</ex:accordion>
+	</p:code>
+    
+</html>

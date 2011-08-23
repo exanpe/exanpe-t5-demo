@@ -1,0 +1,9 @@
+ ----
+ Module fr.exanpe:exanpe-t5-demo
+ ----
+
+fr.exanpe:exanpe-t5-demo Documentation
+
+  This is where you can start to document your module.
+
+  Create new files in the Maven APT format, and update the site.xml file to point to them.

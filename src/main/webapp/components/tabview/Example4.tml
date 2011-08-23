@@ -1,0 +1,44 @@
+<html t:type="componentDemoLayout" title="TabView demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page displays a Tab View controlled server side.<br/>
+   		The default one is specified on server (<b>second tab</b>), and a click on the link <b>Activate Third</b> set the third tab active. 
+   </p:description>
+
+	<p:code>
+		<ex:tabview t:id="tabv" defaultActiveTabId="prop:defaultTab">
+			<ex:tab t:id="tab1" t:title="literal:Tab 1">
+				This is my tab 1 <br/>1<br/>1<br/><br/><br/>
+				content 1
+			</ex:tab>
+			<ex:tab t:id="tab2" t:title="literal:Tab 2">
+				This is my tab 2 <br/>2<br/>2<br/><br/><br/>
+				content 2
+			</ex:tab>
+			<ex:tab t:id="tab3" t:title="literal:Tab 3">
+				This is my tab 3 <br/>3<br/>3<br/><br/><br/>
+				content 3
+			</ex:tab>
+		</ex:tabview> 
+		<br/>
+		<t:actionlink t:id="setThird">Activate third</t:actionlink>
+	</p:code>
+	
+	<p:javacode><![CDATA[
+    @Component(id = "tabv")
+    private TabView tabView;
+
+    @Property
+    private String defaultTab = "tab2";
+
+    public void onActionFromSetThird()
+    {
+        tabView.setSelectedTab("tab3");
+    }
+	]]></p:javacode>
+    
+    
+</html>

@@ -1,0 +1,7 @@
+test-output
+bin
+.classpath
+.project
+.settings
+target
+.metadata

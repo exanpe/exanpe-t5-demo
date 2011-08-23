@@ -1,0 +1,25 @@
+<html t:type="componentDemoLayout" title="Ajax Loader demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page shows an AjaxLoader with loading text customized from resources file.<br/>
+   		Notice the property key <b>please-wait</b> added to the current page resource file. 
+   </p:description>
+
+	<p:code>
+		<ex:ajaxLoader t:id="ajaxLoader" message="please-wait">
+			This text is loaded on demand.<br/>
+			A sleep timer has been set server side on getSleep() method to see the Ajax loading.<br/>
+			${sleep}
+		</ex:ajaxLoader>
+	</p:code>
+	
+	<p:notice>
+		<t:highlightBody type="ini">
+			item1-title=Title of item 1
+		</t:highlightBody>
+	</p:notice>
+    
+</html>

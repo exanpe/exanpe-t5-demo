@@ -1,0 +1,30 @@
+<html t:type="componentDemoLayout" title="Secure Password demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page displays a SecurePassword with a custom character set to select.<br/>
+   		Its size has been adapted.<br/>
+   		Note that when submitting, the value entered stay recorded in the component.
+   </p:description>
+
+	<p:code>
+		<t:form>
+			<ex:securePassword value="passwordValue" characters="0123456789abcdegf" gridWidth="5" gridHeight="4"/>
+			Value sent : ${prop:passwordValue}<br/>
+			<t:submit/>
+		</t:form>
+	</p:code>
+    
+    <p:javacode><![CDATA[
+	    @Persist(PersistenceConstants.FLASH)
+	    @Property
+	    private String passwordValue;
+
+	    void onSubmit()
+	    {
+	    }
+    ]]></p:javacode>
+    
+</html>

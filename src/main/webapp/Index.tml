@@ -1,0 +1,107 @@
+<html t:type="layout" title="exanpe-t5-demo Index"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+        <!-- Most of the page content, including <head>, <body>, etc. tags, comes from Layout.tml -->
+
+    <p>
+    <b>Welcome to the Exanpe T5 lib Demo !</b> <br/>
+    This application have been created to show the components in action and help you get on with them by displaying some samples of code for every component's use case.</p>
+	Here are the components in action: <br/><br/>
+
+	<ul>
+		<li>
+		Have a look to our showcase <t:pagelink page="components/grouping">page grouping many components</t:pagelink>
+		</li>
+		<li>
+		See our <t:pagelink page="components/exanpeSkin/example1">Tapestry core components skinned by Exanpe</t:pagelink>
+		</li>
+	</ul>
+	<br/>
+	<table width="100%">
+	<tr><td width="50%">
+		<ul>
+			<li><b>Accordion</b>
+				<ul>
+					<li><t:pagelink page="components/accordion/example1">Standard Accordion</t:pagelink></li>
+					<li><t:pagelink page="components/accordion/example2">Accordion built from resources file</t:pagelink></li>
+					<li><t:pagelink page="components/accordion/example3">Accordion event on mouseover</t:pagelink></li>
+					<li><t:pagelink page="components/accordion/example4">Accordion with a single item open allowed</t:pagelink></li>
+					<li><t:pagelink page="components/accordion/example5">Accordion and JavaScript interaction</t:pagelink></li>
+				</ul>
+			</li>
+			<li><b>AjaxLoader</b>
+				<ul>
+					<li><t:pagelink page="components/ajaxLoader/example1">Basic AjaxLoader</t:pagelink></li>
+					<li><t:pagelink page="components/ajaxLoader/example2">AjaxLoader with text customized</t:pagelink></li>
+					<li><t:pagelink page="components/ajaxLoader/example3">AjaxLoader loaded on demand, without panel</t:pagelink></li>
+				</ul>
+			</li>
+			<li><b>Border</b>
+				<ul>
+					<li><t:pagelink page="components/border/example1">A simple Border</t:pagelink></li>
+				</ul>
+			</li>
+			<li><b>ColorPicker</b>
+				<ul>
+					<li><t:pagelink page="components/colorPicker/example1">The Color Picker component in action</t:pagelink></li>
+				</ul>
+			</li>
+			<li><b>Dialog</b>
+				<ul>
+					<li><t:pagelink page="components/dialog/example1">A Dialog presentation displaying an information</t:pagelink></li>
+					<li><t:pagelink page="components/dialog/example2">A Dialog displaying a confirmation</t:pagelink></li>
+					<li><t:pagelink page="components/dialog/example3">A Dialog with title and message customized</t:pagelink></li>
+					<li><t:pagelink page="components/dialog/example4">A Dialog with title and message consolidated through injected id</t:pagelink></li>
+				</ul>
+			</li>
+			<li><b>Hideable Panel</b>
+				<ul>
+					<li><t:pagelink page="components/hideablePanel/example1">A basic Hideable Panel</t:pagelink></li>
+					<li><t:pagelink page="components/hideablePanel/example2">A Hideable Panel with some customing and JavaScript interaction</t:pagelink></li>
+				</ul>
+			</li>
+		</ul>
+	</td><td width="50%" style="border-left:1px solid silver">	
+		<ul>
+			<li><b>Secure Password</b>
+				<ul>
+					<li><t:pagelink page="components/securePassword/example1">A basic Secure Password</t:pagelink></li>
+					<li><t:pagelink page="components/securePassword/example2">A Secure Password with some hover recording and maxlength customised</t:pagelink></li>
+					<li><t:pagelink page="components/securePassword/example3">Secure Password with character set and grid size redefined</t:pagelink></li>
+				</ul>
+			</li>
+			<li><b>SelectLoader</b>
+				<ul>
+					<li><t:pagelink page="components/selectLoader/example1">SelectLoader mixin demonstration</t:pagelink></li>
+					<li><t:pagelink page="components/selectLoader/example2">Chain 3 selects</t:pagelink></li>
+				</ul>
+			</li>
+			<li><b>Slider</b>
+				<ul>
+					<li><t:pagelink page="components/slider/example1">Basic Slider example</t:pagelink></li>
+					<li><t:pagelink page="components/slider/example2">Slider with selection customized : min, max, and gap value</t:pagelink></li>
+					<li><t:pagelink page="components/slider/example3">Slider displaying the real time value in a custom html element</t:pagelink></li>
+					<li><t:pagelink page="components/slider/example4">Slider vertically oriented</t:pagelink></li>
+				</ul>
+			</li>
+			<li><b>TabView</b>
+				<ul>
+					<li><t:pagelink page="components/tabview/example1">A basic TabView</t:pagelink></li>
+					<li><t:pagelink page="components/tabview/example2">A "client side" TabView</t:pagelink></li>
+					<li><t:pagelink page="components/tabview/example3">Load the tabs attributes (text + icon) from a resources file</t:pagelink></li>
+					<li><t:pagelink page="components/tabview/example4">A tabView with full control over the selected tab</t:pagelink></li>
+				</ul>
+			</li>
+			<li><b>Tooltip</b>
+				<ul>
+					<li><t:pagelink page="components/tooltip/example1">A basic Tooltip</t:pagelink></li>
+					<li><t:pagelink page="components/tooltip/example2">Tooltip built from resources file</t:pagelink></li>
+					<li><t:pagelink page="components/tooltip/example3">Tooltip displaying a rich content defined in the page</t:pagelink></li>
+				</ul>
+			</li>
+		</ul>
+	</td>
+	</tr>
+	</table>
+    
+</html>

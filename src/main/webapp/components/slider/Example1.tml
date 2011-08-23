@@ -1,0 +1,29 @@
+<html t:type="componentDemoLayout" title="Slider demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This example shows a basic Slider component.<br/>
+   		This component has to be enclosed inside a form.<br/>
+   		It is bound to a page @Property sliderValue
+   </p:description>
+
+	<p:code>
+		<t:form>
+			<ex:slider t:id="slider" value="sliderValue"/>
+	
+			<t:submit/>
+		</t:form>
+		Submitted value : ${sliderValue}<br/>
+	</p:code>
+	
+	<p:javacode><![CDATA[
+    @Property
+    @Persist
+    private int sliderValue;
+	]]></p:javacode>
+	
+    
+    
+</html>

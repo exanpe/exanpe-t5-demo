@@ -1,0 +1,101 @@
+<html t:type="layout" title="Components grouping"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+	<style type="text/css">
+		.gridWrapper {
+			width:803px !important; 
+			width/**/:/**/ 813px;
+		}
+	</style>
+
+	This page displays a webmail including the Exanpe components.<br/><br/>
+
+	<div class="exanpe-skin">
+	<ex:HideablePanel t:id="webmailLayout" hideWidth="200" class="paddingtop">
+		<t:parameter name="hideable">
+			
+			<ex:accordion t:id="categories" t:title="cat-title">
+		  		<ex:accordionItem t:id="mail" opened="true">
+		  			<ex:tooltip t:message="${sumUp.total } received / ${sumUp.unread } unread">
+		  				<t:actionlink t:id="received">${message:receivedLink}</t:actionlink><br/>
+		  			</ex:tooltip>
+		  			<span t:type="any" t:mixins="exanpe/dialog" t:renderMode="INFO" t:message="not-implemented" t:title="not-implemented-title">
+			  			<ex:tooltip t:message="prop:sumUp.sent">
+			  				<t:actionlink t:id="sent">${message:sentLink}</t:actionlink><br/>
+			  			</ex:tooltip>
+		  			</span>
+		  			<span t:type="any" t:mixins="exanpe/dialog" t:renderMode="INFO" t:message="not-implemented" t:title="not-implemented-title">
+			  			<ex:tooltip t:message="prop:sumUp.deleted">
+			  				<t:actionlink t:id="deleted">${message:deletedLink}</t:actionlink><br/>
+			  			</ex:tooltip>
+		  			</span>
+		  		</ex:accordionItem>
+		  		<ex:accordionItem t:id="calendar"/>
+		  		<ex:accordionItem t:id="tasks"/>
+		  	</ex:accordion>
+			
+		</t:parameter>
+		<t:parameter name="visible">
+			<ex:tabview t:id="tabview" defaultActiveTabId="tabpres">
+				<ex:tab t:id="tabpres">
+					This page presents many components of Exanpe library and Tapestry core grouped together to render a "real" view.<br/>
+					Here is a case that demonstrate the Exanpe library :
+					<ul>
+						<li>On the left site, an <b>Accordion</b> groups some actions.</li>
+						<li>The layout is built over a <b>HideablePanel</b>, allowing the right zone to be increased.</li>
+						<li>The right side is structured over a TabView</li>
+						<li>On the left site, hover Received. A <b>Tooltip</b> appears.</li>
+						<li>Click Received.</li>
+						<li>A skinned Tapestry Grid appears on the right side, into a new Tab.</li>
+						<li>For a mail :
+							<ul>
+								<li>If you click Open Mail, the mail will open in a new Tab.</li>
+								<li>If you click Delete Mail, a <b>Dialog</b> component appear, informing that we did not implement that functionality.</li>
+							</ul>
+						</li>
+					</ul>
+				</ex:tab>
+				<t:if test="mailsReceived">
+					
+					<ex:tab t:id="tabReceived">
+						<br/>
+						<div class="gridWrapper">
+							<t:grid source="mailsReceived" row="iteMail" rowsPerPage="10"
+								add="showInTab,delete" exclude="id">
+								<p:subjectCell>
+									${shortenedSubject }
+								</p:subjectCell>
+								<p:contentCell>
+									${shortenedContent }
+								</p:contentCell>
+								<p:fromCell>
+									${shortenedFrom }
+								</p:fromCell>
+								<p:showInTabCell>
+									<t:actionLink t:id="open" context="iteMail.id">Open mail</t:actionLink>
+								</p:showInTabCell>
+								<p:deleteCell>
+									<t:actionLink t:id="delete" context="iteMail.id" 
+									t:mixins="exanpe/dialog" t:renderMode="INFO" t:message="not-implemented" t:title="not-implemented-title">Delete mail</t:actionLink>
+								</p:deleteCell>
+							</t:grid>
+						</div>
+					</ex:tab>
+					
+				</t:if>
+				<t:if test="mailsOpen">
+					<t:loop source="mailsOpen" value="iteMail">
+						<ex:tab title="${iteMail.subject}" icon="context:/img/grouping/email_open.png">
+							${iteMail.content}<br/><br/>
+							<hr/>
+							<t:actionlink t:id="close" t:context="iteMail.id">Close mail</t:actionlink>
+						</ex:tab>
+					</t:loop>
+				</t:if>
+			</ex:tabview>
+		</t:parameter>
+	</ex:HideablePanel>
+    </div>
+</html>

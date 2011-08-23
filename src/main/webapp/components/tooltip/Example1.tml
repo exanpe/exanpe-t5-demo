@@ -1,0 +1,30 @@
+<html t:type="componentDemoLayout" title="Tooltip demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page displays a basic Tooltip.<br/>
+   		Set the tooltip component around the one you want to display the tooltip.<br/>
+   		The message is gathered from the page's resources file.
+   </p:description>
+
+	<p:code>
+		<ex:tooltip t:id="tooltip" t:message="tooltip-message-example">
+			Mouseover this text
+		</ex:tooltip>
+		<br/>
+		<ex:tooltip t:id="tooltip2" t:message="literal:And me ?">
+			Mouseover this other text
+		</ex:tooltip>
+	</p:code>
+	
+	<p:notice>
+		Property file :
+		<t:highlightBody type="ini">
+		tooltip-message-example=Do you see me ?
+		</t:highlightBody>
+	</p:notice>
+    
+    
+</html>

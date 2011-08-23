@@ -1,0 +1,20 @@
+<html t:type="componentDemoLayout" title="Secure Password demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page displays a SecurePassword triggered on hover, with <b>eventType</b> attribute.<br/>
+   		Hover a number to record it.<br/>
+   		The <b>maxlength</b> has been reduced on force a maximum of 6 characters to be entered.
+   </p:description>
+
+	<p:code>
+		<t:form>
+			<ex:securePassword value="passwordValue" eventType="hover" maxlength="6"/>
+			Value sent : ${prop:val}<br/>
+			<t:submit/>
+		</t:form>
+	</p:code>
+    
+</html>

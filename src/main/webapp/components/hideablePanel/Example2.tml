@@ -1,0 +1,34 @@
+<html t:type="componentDemoLayout" title="Hideable Panel demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page displays a HideablePanel customized.<br/>
+   		Here are defined the duration of the animation and allow some JavaScript interaction.
+   </p:description>
+
+	<p:code>
+		<ex:HideablePanel t:id="hpanel" hideWidth="200" duration="0.1">
+		
+			<t:parameter name="hideable">
+				This<br/>
+				content<br/>
+				is<br/>
+				hideable<br/>
+			</t:parameter>
+			
+			<t:parameter name="visible">
+				This<br/>
+				content<br/>
+				is<br/>
+				always<br/>
+				visible<br/>
+			</t:parameter>
+			
+		</ex:HideablePanel>
+		
+		<input type="button" onclick="hpanel.reverse()" value="Switch panel visibility"/>
+	</p:code>
+    
+</html>

@@ -1,0 +1,36 @@
+<html t:type="componentDemoLayout" title="TabView demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page displays Tab View with data loaded from resources file.<br/>
+   		Note that only tab 1 and 2 load from resources file, whereas tab3 is declared inline (not recommended in a real application code =))
+   </p:description>
+
+	<p:code>
+		<ex:tabview t:id="tabv" defaultActiveTabId="tab1" loadAll="true">
+			<ex:tab t:id="tab1">
+				This is my tab 1 <br/>1<br/>1<br/><br/><br/>
+				content 1
+			</ex:tab>
+			<ex:tab t:id="tab2">
+				This is my tab 2 <br/>2<br/>2<br/><br/><br/>
+				content 2
+			</ex:tab>
+			<ex:tab t:id="tab3" t:title="literal:Tab 3" t:icon="asset:context:/img/tab/email.png">
+				This is my tab 3 <br/>3<br/>3<br/><br/><br/>
+				content 3
+			</ex:tab>
+		</ex:tabview> 
+	</p:code>
+    
+    <p:notice>
+    	tab1-title=Title of tab 1
+		tab1-icon=context:/img/tab/application.png
+
+		tab2-title=Title of tab 2
+		tab2-icon=context:/img/tab/comments.png
+    </p:notice>
+    
+</html>

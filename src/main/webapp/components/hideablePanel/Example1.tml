@@ -1,0 +1,32 @@
+<html t:type="componentDemoLayout" title="Hideable Panel demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page displays a basic HideablePanel.<br/>
+   		The width of the left side hideable panel is required.
+   </p:description>
+
+	<p:code>
+		<ex:HideablePanel t:id="hpanel" hideWidth="200">
+		
+			<t:parameter name="hideable">
+				This<br/>
+				content<br/>
+				is<br/>
+				hideable<br/>
+			</t:parameter>
+			
+			<t:parameter name="visible">
+				This<br/>
+				content<br/>
+				is<br/>
+				always<br/>
+				visible<br/>
+			</t:parameter>
+			
+		</ex:HideablePanel>
+	</p:code>
+    
+</html>

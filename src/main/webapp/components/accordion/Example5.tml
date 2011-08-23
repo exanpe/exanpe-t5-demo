@@ -1,0 +1,27 @@
+<html t:type="componentDemoLayout" title="Accordion demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page shows the way to interact with the accordion with JavaScript.<br/>
+   		It also boots the duration of the accordion animation
+   </p:description>
+
+	<p:code>
+		<ex:accordion t:id="accordion" duration="0.2">
+			<ex:accordionItem t:id="item1" title="literal:title1" opened="true">
+				Content coded in body	
+			</ex:accordionItem>
+			<ex:accordionItem t:id="item2" title="literal:title2">
+				Content 2 coded in body
+			</ex:accordionItem>
+		</ex:accordion>
+		
+		<input type="button" onclick="accordion.open('item1')" value="Open first item"/>
+		<input type="button" onclick="accordion.close('item1')" value="Close first item"/>
+	</p:code>
+    
+    
+    
+</html>

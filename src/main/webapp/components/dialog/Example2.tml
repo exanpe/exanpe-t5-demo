@@ -1,0 +1,17 @@
+<html t:type="componentDemoLayout" title="Dialog demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page displays a dialog component with a confirmation required.<br/>
+   		Activation takes place on <b>Ok</b> click.<br/>
+   		Notice the <b>t:renderMode</b> to <b>confirm</b>.
+   </p:description>
+
+	<p:code>
+		<t:pagelink page="Index" 
+			t:mixins="exanpe/dialog" t:renderMode="confirm" t:message="literal:Really sure to go to index ?">Go to index</t:pagelink>
+	</p:code>
+    
+</html>

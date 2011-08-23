@@ -1,0 +1,29 @@
+<html t:type="componentDemoLayout" title="Color Picker demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page displays a color picker.<br/>
+   		It is bound to a value into the page.<br/>
+   		A coercer have been implemented between String and java.awt.Color.<br/>
+   		It has to be enclosed inside a form. 
+   </p:description>
+
+	<p:code>
+		<t:form>
+			<ex:colorPicker t:id="colorpicker" value="color"/>
+			
+			<t:submit/>
+		</t:form>
+		
+		Color submitted : ${color}
+	</p:code>
+	
+	<p:javacode><![CDATA[
+    @Property
+    @Persist
+    private Color color;
+	]]></p:javacode>
+    
+</html>

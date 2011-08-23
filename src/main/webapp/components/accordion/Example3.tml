@@ -1,0 +1,21 @@
+<html t:type="componentDemoLayout" title="Accordion demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page shows an accordion expanded when title are hovered. No click required.
+   </p:description>
+
+	<p:code>
+		<ex:accordion t:id="accordion" eventType="hover">
+			<ex:accordionItem title="literal:title1" opened="true">
+				Content coded in body	
+			</ex:accordionItem>
+			<ex:accordionItem title="literal:title2">
+				Content 2 coded in body
+			</ex:accordionItem>
+		</ex:accordion>
+	</p:code>
+    
+</html>

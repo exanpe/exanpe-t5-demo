@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="exanpe-t5-demo Application Test Suite" annotations="1.5">
+    <test name="Unit Tests">
+        <packages>
+            <package name="fr.exanpe.t5.demo"/>
+        </packages>
+    </test>
+</suite>

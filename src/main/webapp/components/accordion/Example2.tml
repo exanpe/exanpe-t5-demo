@@ -1,0 +1,30 @@
+<html t:type="componentDemoLayout" title="Accordion demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page shows an accordion built entirely from data located in a resources file.<br/>
+   		Mainly useful for short contents. 
+   </p:description>
+
+	<p:code>
+		<ex:accordion t:id="accordion">
+			<ex:accordionItem t:id="item1"/>
+			<ex:accordionItem t:id="item2"/>
+		</ex:accordion>
+	</p:code>
+	
+	<p:notice>
+		These keys are defined in the property file of the current page :<br/><br/>
+		
+		<t:highlightBody type="ini">
+			item1-title=Title of item 1
+			item2-title=Title of item 2
+			
+			item1-content=Content of item 1
+			item2-content=Content of item 2	
+		</t:highlightBody>
+	</p:notice>
+    
+</html>
