@@ -34,6 +34,7 @@
 					<li><t:pagelink page="components/ajaxLoader/example1">Basic AjaxLoader</t:pagelink></li>
 					<li><t:pagelink page="components/ajaxLoader/example2">AjaxLoader with text customized</t:pagelink></li>
 					<li><t:pagelink page="components/ajaxLoader/example3">AjaxLoader loaded on demand, without panel</t:pagelink></li>
+					<li><t:pagelink page="components/ajaxLoader/example4">Ajax Loader loaded on demand, without panel and with highlighting effect</t:pagelink></li>
 				</ul>
 			</li>
 			<li><b>Border</b>

@@ -1,0 +1,31 @@
+<html t:type="componentDemoLayout" title="Ajax Loader demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page shows an AjaxLoader loaded on demand, disabling the loading panel, and highlighting the result.<br/>
+   		Notice the attribute <b>highlight</b> set to true.<br/>
+   		Also, a button allow the content reloading on demand. 
+   </p:description>
+
+	<p:code>
+		<ex:ajaxLoader t:id="ajaxLoader" autoLoad="false" showPanel="false" highlight="true">
+			This text is loaded on demand and highlighted at the end of the loading.<br/>
+			No time server side.<br/>
+			Curent Datetime : ${date}
+		</ex:ajaxLoader>
+		<input type="button" onclick="ajaxLoader.load()" value="Load"/>
+	</p:code>
+	
+	<p:javacode><![CDATA[
+    @Property
+    private String date;
+
+    public void onActivate()
+    {
+        date = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss").format(new Date());
+    }
+	]]></p:javacode>
+    
+</html>
