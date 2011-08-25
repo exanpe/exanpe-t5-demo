@@ -9,6 +9,7 @@
    </p:description>
 
 	<p:code>
+	<br />
 		<ex:border>
 			This text is wrapped inside a border.
 		</ex:border>
