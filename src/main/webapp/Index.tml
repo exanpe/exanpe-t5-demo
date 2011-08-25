@@ -10,7 +10,7 @@
 
 	<ul>
 		<li>
-		Have a look to our showcase <t:pagelink page="components/grouping">page grouping many components</t:pagelink>
+		Have a look at our showcase <t:pagelink page="components/grouping">page grouping many components</t:pagelink>
 		</li>
 		<li>
 		See our <t:pagelink page="components/exanpeSkin/example1">Tapestry core components skinned by Exanpe</t:pagelink>

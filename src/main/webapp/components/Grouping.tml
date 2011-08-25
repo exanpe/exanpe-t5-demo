@@ -17,7 +17,7 @@
 			<ex:HideablePanel t:id="webmailLayout" hideWidth="200" class="paddingtop">
 				<t:parameter name="hideable">
 					
-					<ex:accordion t:id="categories" t:title="cat-title">
+					<ex:accordion t:id="categories" title="cat-title" duration="0.2">
 				  		<ex:accordionItem t:id="mail" opened="true">
 				  			<ex:tooltip t:message="${sumUp.total } received / ${sumUp.unread } unread">
 				  				<t:actionlink t:id="received">${message:receivedLink}</t:actionlink><br/>
