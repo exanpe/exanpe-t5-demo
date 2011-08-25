@@ -4,4 +4,5 @@
   <!-- No '.', '_', no capital letter -->
   <version>1-0-0-snapshot</version>
   <sessions-enabled>true</sessions-enabled>
+  <threadsafe>true</threadsafe>
 </appengine-web-app>
