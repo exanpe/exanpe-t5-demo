@@ -1,3 +1,4 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html t:type="componentDemoLayout" title="Tooltip demo"
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
       xmlns:p="tapestry:parameter"
@@ -10,15 +11,13 @@
    </p:description>
 
 	<p:code>
-		<ex:tooltip t:id="tooltip" blockId="tooltipContent">
-			Mouseover this text
-		</ex:tooltip>
 		<br/>
 		<ex:tooltip t:id="tooltip2" blockId="tooltipContent">
-			Mouseover this other text
+			Mouseover this text
 		</ex:tooltip>
 		
 		<t:block id="tooltipContent">
+			<img src="${asset:context:img/tab/comments.png}" border="0" />&nbsp;
 			<b>Thats a tooltip said <span style="color:red">RICH</span></b>
 		</t:block>
 	</p:code>    
