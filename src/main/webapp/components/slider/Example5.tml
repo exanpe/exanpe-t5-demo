@@ -1,0 +1,42 @@
+<html t:type="componentDemoLayout" title="Slider demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This example shows an Ajax Slider component.<br/>
+   		It is bound to a page @Property sliderValue.<br />
+   		ExanpeEventConstants.SLIDER_EVENT is used to intercept Ajax Slider event.<br />
+   		An ajax request is triggered on slide end.<br />
+   		Notice here the <b>ajax</b> and <b>zone</b> attributes.<br />
+   		The <b>zone</b> parameter must be used with <b>ajax</b> parameter (set to true) and allow to  update the target Tapestry zone element.<br />
+   		The <b>displayId</b> attribute is set to "none" and is used to hide current slider value. 
+   </p:description>
+
+	<p:code>
+		<t:form>
+			<t:zone t:id="zone" id="zone">
+				Ajax Slider value : ${sliderValue}<br/>
+			</t:zone>
+			<ex:slider t:id="slider" value="sliderValue" ajax="true" zone="zone" displayId="none"/>
+		</t:form>
+	</p:code>
+	
+	<p:javacode><![CDATA[
+    @Property
+    @Persist
+    private int sliderValue;
+    
+    @InjectComponent
+    private Zone zone;
+
+    @OnEvent(ExanpeEventConstants.SLIDER_EVENT)
+    Object handleSliderAjaxEvent(String value)
+    {
+        return zone.getBody();
+    }
+	]]></p:javacode>
+	
+    
+    
+</html>
