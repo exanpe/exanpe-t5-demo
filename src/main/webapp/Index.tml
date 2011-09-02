@@ -44,7 +44,14 @@
 			</li>
 			<li><b>ColorPicker</b>
 				<ul>
-					<li><t:pagelink page="components/colorPicker/example1">The Color Picker component in action</t:pagelink></li>
+					<li>
+						<t:if test="isGae">
+							<t:pagelink page="components/colorPicker/snapshot1">The Color Picker component</t:pagelink>
+							<p:else>
+								<t:pagelink page="components/colorPicker/example1">The Color Picker component in action</t:pagelink>
+							</p:else>
+						</t:if>
+					</li>
 				</ul>
 			</li>
 			<li><b>Dialog</b>

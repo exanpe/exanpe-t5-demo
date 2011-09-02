@@ -5,6 +5,9 @@
     <p>
     This application has been developped by the exanpe team.<br/>
     It is currently hosted on Google App Engine and can be accessed to <a href="http://exanpe-t5-lib.appspot.com/">http://exanpe-t5-lib.appspot.com/</a>.<br/>
+    We are limited by daily quotas and instances restrictions.<br/>
+    A way for you to test it easily would be to have a look at our examples sources (@see github <a href="https://github.com/exanpe/exanpe-t5-demo">exanpe-t5-demo</a> project) 
+    and test them anywhere (mvn jetty:run) or download the war file <a href="https://github.com/downloads/exanpe/exanpe-t5-demo/exanpe-t5-demo.war">here</a>.
     </p>
 
 </html>

@@ -1,0 +1,44 @@
+<html t:type="componentDemoLayout" title="Color Picker snapshots"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   	    Due to some limitations with GAE, it is not possible to display the ColorPicker component "in action" (the Java class java.awt.Color is forbidden by GAE).<br />
+   	    If you really want to see it "in action", you can deploy this demo application on Jetty or Tomcat, and so, you'll get access to the full demo page.<br />
+   	    (please have a look at <t:pagelink page="about">About page</t:pagelink> for deployment informations).<br /><br />
+   	    
+   	    The GAE version of this demo is realised with some snapshots.<br />
+   	    
+   		The component displays a color picker : <br/><br/>
+   		<img src="${asset:context:img/colorpicker/colorpicker_snap1.png}" border="0" /> <br />
+   		
+   		<br/>
+   		When user click on the ColorPicker icon, the component displays a popup to let user make his choice.<br /><br />
+   		
+   		<img src="${asset:context:img/colorpicker/colorpicker_snap2.png}" border="0" /> <br />
+   		<br/>
+   		Once choice done, user valid his selection by clicking "Close" button.<br />
+   		The input field his updated : <br/><br/>
+   		
+   		<img src="${asset:context:img/colorpicker/colorpicker_snap3.png}" border="0" /> <br />
+   		<br/>
+   		After form submit : <br/><br/>
+   		
+   		<img src="${asset:context:img/colorpicker/colorpicker_snap5.png}" border="0" /> <br />
+   		
+   		The input field is bound to a value into the page.<br/>
+   		A coercer have been implemented between String and java.awt.Color.<br/>
+   		It has to be enclosed inside a form. 
+   </p:description>
+
+	<div class="inaction">TML Snapshot code</div>
+		<img src="${asset:context:img/colorpicker/colorpicker_snap4.png}" border="0" /> <br />
+	
+	<p:javacode><![CDATA[
+    @Property
+    @Persist
+    private Color color;
+	]]></p:javacode>
+    
+</html>
