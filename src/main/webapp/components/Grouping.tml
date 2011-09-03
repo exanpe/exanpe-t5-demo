@@ -5,7 +5,7 @@
 
 	<style type="text/css">
 		.gridWrapper {
-			width:803px !important; 
+			width:796px !important; 
 			width/**/:/**/ 813px;
 		}
 	</style>
@@ -13,7 +13,7 @@
 	This page displays a webmail including the Exanpe components.<br/><br/>
 
 	<div class="exanpe-skin">
-		<ex:Border>
+		<ex:Border style="width:1040px;">
 			<ex:HideablePanel t:id="webmailLayout" hideWidth="200" class="paddingtop">
 				<t:parameter name="hideable">
 					
