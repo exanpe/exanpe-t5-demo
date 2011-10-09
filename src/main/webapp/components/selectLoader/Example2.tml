@@ -4,12 +4,21 @@
       xmlns:ex="tapestry-library:exanpe">
 
    <p:description>
-   		This page displays the SelectLoader mixin, chaining 3 selects.
+   		This page displays the SelectLoader mixin, chaining 3 selects.<br/>
+   		Have a look to the event redefinition, cleaning the third select on first one choice.
    </p:description>
 
 	<p:code>
 		<t:form>
 			<t:select t:mixins="exanpe/selectLoader" t:targetId="city" t:id="country" model="country" value="countryValue" encoder="countryEncoder"/>
+	
+			<script type="text/javascript">
+			YAHOO.util.Event.onDOMReady(function(){
+				country.afterUpdateSuccess = function(){
+					YAHOO.util.Dom.get("type").options.length = 0;
+				}
+			});
+			</script>
 	
 			<t:select t:mixins="exanpe/selectLoader" t:targetId="type" t:id="city" model="city" value="cityValue"/>
 			
