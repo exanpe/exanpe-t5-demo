@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cloudbees-web-app xmlns="http://www.cloudbees.com/xml/webapp/1">
+	<appid>exanpe-t5-lib/demo</appid>
+	<resource name="jdbc/exanpe" auth="Container" type="javax.sql.DataSource">
+		<param name="username" value="exanpe" />
+		<param name="password" value="exanpe" />
+		<param name="url" value="jdbc:cloudbees://exanpe" />
+	</resource>
+	<sessionDataSource>jdbc/exanpe</sessionDataSource>
+</cloudbees-web-app>
