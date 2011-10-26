@@ -1,0 +1,27 @@
+<html t:type="componentDemoLayout" title="Border demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page displays a ajaxValidation displaying a message from the page's property message file. <br/>
+   		Tapestry convention is followed : the validator is named ajaxValidator
+   </p:description>
+
+	<p:code>
+		<t:form>
+			Login : <t:textfield t:id="login" value="loginValue"
+				t:mixins="exanpe/ajaxValidation"/>
+			<br/><br/>
+			<t:submit/>
+		</t:form>
+	</p:code>
+    
+    <p:notice>
+		This key is declared in the property file of the current page :<br/><br/>
+		
+		<t:highlightBody type="ini">
+			login-ajaxValidator-message=Please, enter admin in this field
+		</t:highlightBody>
+	</p:notice>
+</html>

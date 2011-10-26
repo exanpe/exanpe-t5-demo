@@ -1,0 +1,36 @@
+<html t:type="componentDemoLayout" title="Border demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page displays a <i>menubar</i> component with sub elements.<br/>
+   		Every sub level is declared through the <i>submenu</i> component.
+   </p:description>
+
+	<p:code>
+		
+	<ex:menubar t:id="menubar">
+		<ex:menuitem>
+			Menu 1
+			<ex:submenu>
+				<ex:menuitem label="literal:Sub Menu 1"/>
+				<ex:menuitem label="literal:Sub Menu 2"/>
+				<ex:menuitem label="literal:Sub Menu 3">
+					<ex:submenu>
+						<ex:menuitem label="literal:Sub Menu 31"/>
+					</ex:submenu>
+				</ex:menuitem>
+			</ex:submenu>
+		</ex:menuitem>
+		<ex:menuitem>
+			Menu 2
+		</ex:menuitem>	
+		<ex:menuitem>
+			Menu 3
+		</ex:menuitem>
+	</ex:menubar>
+		
+	</p:code>
+    
+</html>

@@ -1,0 +1,36 @@
+<html t:type="componentDemoLayout" title="Border demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page displays a standard ajaxValidation component. <br/>
+   		It enables an ajax validation in a textfield, triggered on blur.
+   </p:description>
+
+	<p:code>
+		<t:form>
+			Login : <t:textfield t:id="login" value="loginValue"
+				t:mixins="exanpe/ajaxValidation"
+				t:message="literal:Enter admin please"/>
+			<br/><br/>
+			<t:submit/>
+		</t:form>
+	</p:code>
+	
+	<p:javacode><![CDATA[
+	@Property
+    private String loginValue;
+
+    @OnEvent(value = ExanpeEventConstants.AJAXVALIDATION_EVENT, component = "login")
+    public AjaxValidationResult validateLogin(String login)
+    {
+        if (login != null && login.equalsIgnoreCase("admin"))
+            return AjaxValidationResult.TRUE;
+
+        return AjaxValidationResult.FALSE;
+    }
+	]]>
+	</p:javacode>
+    
+</html>

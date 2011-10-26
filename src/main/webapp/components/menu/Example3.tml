@@ -1,0 +1,39 @@
+<html t:type="componentDemoLayout" title="Border demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page displays a <i>menubar</i> component with menuitem customized.<br/>
+   		Notice the attributes <i>disabled</i> and <i>visible</i>. Menu 1 is not visible (actually, not rendered) and Menu 2 is disabled.<br/>
+   		Menu 4 got its label automatically populated from the current page's property file, using its id.   		
+   </p:description>
+
+	<p:code>
+		
+	<ex:menubar t:id="menubar">
+		<ex:menuitem visible="false">
+			Menu 1
+		</ex:menuitem>
+		<ex:menuitem disabled="true">
+			Menu 2
+			<ex:submenu>
+				<ex:menuitem label="literal:Not displayed because disabled"/>
+			</ex:submenu>
+		</ex:menuitem>	
+		<ex:menuitem>
+			Menu 3
+		</ex:menuitem>
+		<ex:menuitem t:id="menu4"/>
+	</ex:menubar>
+		
+	</p:code>
+    
+    <p:notice>
+		This key is defined in the property file of the current page :<br/><br/>
+		
+		<t:highlightBody type="ini">
+			menu4-label=Menu 4 from properties
+		</t:highlightBody>
+	</p:notice>
+</html>

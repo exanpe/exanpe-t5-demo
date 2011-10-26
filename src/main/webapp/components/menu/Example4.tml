@@ -1,0 +1,38 @@
+<html t:type="componentDemoLayout" title="Border demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page displays a <i>menu</i> component menuitem.<br/>
+   		This menu can be opened with the JavaScript API provided (see JsDoc).<br/>
+   		This components behavior is exactly the same as the <i>menubar</i>.
+   </p:description>
+
+	<p:code>
+		
+	<ex:menu t:id="menu1">
+		<ex:menuitem visible="false">
+			Menu 1
+		</ex:menuitem>
+		<ex:menuitem disabled="true">
+			Menu 2
+			<ex:submenu>
+				<ex:menuitem label="literal:Not displayed because disabled"/>
+			</ex:submenu>
+		</ex:menuitem>	
+		<ex:menuitem>
+			Menu 3
+			<ex:submenu>
+				<ex:menuitem>
+					<a href="http://www.google.com/" target="_blank">Go to Google</a>
+				</ex:menuitem>
+			</ex:submenu>
+		</ex:menuitem>
+	</ex:menu>
+	
+	<button id="target" onclick="menu1.show()">Open the menu !</button>
+	
+	</p:code>
+    
+</html>

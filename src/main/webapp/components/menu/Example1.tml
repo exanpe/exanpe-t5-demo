@@ -1,0 +1,33 @@
+<html t:type="componentDemoLayout" title="Border demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page displays a simple <i>menubar</i> component, without sub elements.<br/>
+   		Notice that the content of menuitem can be :
+   		<ul>
+   			<li>A Tapestry component</li>
+   			<li>A label defined with the <i>label</i> attribute</li>
+   			<li>Any HTML content</li>
+   		</ul>
+   </p:description>
+
+	<p:code>
+		
+	<ex:menubar t:id="menubar">
+		<ex:menuitem>
+			<t:pagelink page="index">Index</t:pagelink>
+		</ex:menuitem>
+		<ex:menuitem>
+			<t:pagelink page="index">Index second link</t:pagelink>
+		</ex:menuitem>	
+		<ex:menuitem label="literal:Nothing here"/>
+		<ex:menuitem>
+			<a href="http://www.google.com" target="_blank">Google link</a>
+		</ex:menuitem>
+	</ex:menubar>
+		
+	</p:code>
+    
+</html>

@@ -1,0 +1,37 @@
+<html t:type="componentDemoLayout" title="Border demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page displays a ajaxValidation on a textfield containing already a Tapestry validation. <br/>
+   		Both validations can be stacked.<br/>
+   		In this example, the Tapestry validation force to minlength=5, the ajaxValidation force to 7 maximum characters. 
+   </p:description>
+
+	<p:code>
+		<t:form>
+			Login : <t:textfield t:id="login" value="loginValue"
+				t:mixins="exanpe/ajaxValidation"
+				t:validate="minlength=5"/>
+			<br/><br/>
+			<t:submit/>
+		</t:form>
+	</p:code>
+    
+    <p:javacode><![CDATA[
+  	@Property
+    private String loginValue;
+
+    @OnEvent(value = ExanpeEventConstants.AJAXVALIDATION_EVENT, component = "login")
+    public AjaxValidationResult validateLogin(String login)
+    {
+        if (login != null && login.length() < 7)
+            return AjaxValidationResult.TRUE;
+
+        return AjaxValidationResult.FALSE;
+    }
+    ]]>
+	</p:javacode>
+	
+</html>
