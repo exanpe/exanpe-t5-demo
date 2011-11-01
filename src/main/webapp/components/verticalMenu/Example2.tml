@@ -1,0 +1,28 @@
+<html t:type="componentDemoLayout" title="VerticalMenu demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page displays VerticalMenu with item title and item icon loaded from resources file.<br/>
+   </p:description>
+
+	<p:code>
+	<div style="width: 180px;">		
+	<ex:verticalMenu t:id="verticalmenu" defaultActiveItem="item1">
+		<ex:verticalMenuItem t:id="item1">
+  			Item 1 content...
+  		</ex:verticalMenuItem>
+		<ex:verticalMenuItem t:id="item2" />
+	</ex:verticalMenu>
+	</div>
+	</p:code>
+    
+    <p:notice>
+item1-title=Item 1<br />
+item1-icon=context:context:/img/verticalMenu/bt_menu.gif<br />
+item2-title=Item 2<br />
+item2-icon=context:context:/img/verticalMenu/bt_menu.gif<br />
+    </p:notice>
+    
+</html>
