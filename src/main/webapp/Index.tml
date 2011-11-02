@@ -88,7 +88,8 @@
 		<ul>
 			<li><b>Password Strength Checker</b><img src="${neww}" title="New feature"/>
 				<ul>
-					<li>TODO</li>
+					<li><t:pagelink page="components/passwordStrengthChecker/example1">A Client-side example</t:pagelink></li>
+					<li><t:pagelink page="components/passwordStrengthChecker/example2">A Server-side example</t:pagelink></li>
 				</ul>
 			</li>
 			<li><b>Secure Password</b>
@@ -130,7 +131,8 @@
 			</li>
 			<li><b>VerticalMenu</b><img src="${neww}" title="New feature"/>
 				<ul>
-					<li>TODO</li>
+					<li><t:pagelink page="components/verticalMenu/example1">A basic VerticalMenu</t:pagelink></li>
+					<li><t:pagelink page="components/verticalMenu/example2">A VerticalMenu with item title and item icon loaded from resource file</t:pagelink></li>
 				</ul>
 			</li>
 		</ul>

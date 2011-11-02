@@ -1,0 +1,73 @@
+<html t:type="componentDemoLayout" title="VerticalMenu demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page displays a <i>verticalmenu</i> component.<br/>
+   		The <b>defaultActiveItem</b> parameter must be set to select the default menu item.<br /><br />
+   		
+   		Notice that the content of verticalMenuItem can be :
+   		<ul>
+   			<li>A Tapestry component</li>
+   			<li>A list of <i>li</i> elements</li>
+   			<li>Or any HTML content...</li>
+   		</ul>
+   		
+   		Notice that the event triggered by <i>verticalmenu</i> component can be handle
+   		to achieve the page navigation.
+   </p:description>
+	
+	<p:code>
+	<div style="width: 200px;">		
+	<ex:verticalMenu t:id="verticalmenu" defaultActiveItem="example1">
+		<ex:verticalMenuItem t:id="example1" t:title="literal:Example 1">
+  			<ul>
+  				<li><t:pagelink page="components/verticalMenu/Example1">Example 1</t:pagelink></li>
+  				<li><t:pagelink page="index">Back to index</t:pagelink></li>
+  			</ul>
+  		</ex:verticalMenuItem>
+		<ex:verticalMenuItem t:id="item2" t:title="literal:Item 2">
+  			This is the second menu item
+  			<br /> with long HTML content
+  		</ex:verticalMenuItem>
+  		<ex:verticalMenuItem t:id="external" t:title="literal:Google" t:icon="asset:context:/img/verticalMenu/google-ico.png" t:target="_blank" />
+	</ex:verticalMenu>
+	</div>
+	</p:code>
+    
+    <p:javacode><![CDATA[
+    	@Inject
+    	private PageRenderLinkSource pageLinkSource;
+
+    	@InjectComponent
+    	private VerticalMenu verticalMenu;
+
+    	@OnEvent(ExanpeEventConstants.VERTICALMENU_EVENT)
+    	Object handleSelectMenu(String menuId)
+    	{
+        	if ("external".equals(menuId))
+        	{
+	        		URL external = null;
+	           	try
+	        	{
+	        		external = new URL("http://www.google.fr");
+	        	}
+	        	catch (MalformedURLException ex)
+	        	{
+	        		throw new RuntimeException(ex);
+	        	}
+	        	verticalMenu.resetSelectedMenuItem();
+	        	return external;
+        	}
+        	if ("example1".equals(menuId)) 
+        	{ 
+        		return pageLinkSource.createPageRenderLink(Example1.class); 
+        	}
+        	
+        	return this;
+    	}
+	]]>
+	</p:javacode>
+    
+</html>

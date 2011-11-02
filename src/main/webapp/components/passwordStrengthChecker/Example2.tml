@@ -1,0 +1,52 @@
+<html t:type="componentDemoLayout" title="PasswordStrengthChecker demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+   <p:description>
+   		This page show a <i>passwordStrengthChecker</i> Mixin.<br/>
+   		This Mixin can be used to evaluate the strength of password strings.<br /><br />
+ 		The mixin displays an instantaneous visual feedback related to the complexity of the password.<br />
+ 		You have to provide your own rules to evaluate the password strength.<br />
+ 		This demo page use <b>Server-side</b> mode.<br /><br />
+   		
+   		Notice the <b>ajax</b> parameter set to true for enable Ajax mode to check 
+   		the password complexity.<br />
+   		Notice the <b>min</b> parameter, used to set the minimum number of caracters before triggering ajax event.<br />
+   		According to the documentation, the Ajax callback method must return an element of Java <b>PasswordStrengthCheckerTypeEnum</b> enum.
+   </p:description>
+	
+	<p:code>
+		<t:form>
+			<input type="password" t:type="passwordfield" t:id="pwd" 
+				   t:mixins="exanpe/PasswordStrengthChecker" t:ajax="true" t:min="2"
+				   value="password" />
+		</t:form>
+	</p:code>
+    
+    <p:javacode><![CDATA[
+    @Property
+    private String password;
+    	
+    @OnEvent(value = ExanpeEventConstants.PASSWORDSTRENGTHCHECKER_EVENT)
+    PasswordStrengthCheckerTypeEnum dummyChecker(String pwd)
+    {
+        Integer size = pwd.length();
+        PasswordStrengthCheckerTypeEnum result = PasswordStrengthCheckerTypeEnum.VERYWEAK;
+        if (size >= 3)
+        {
+            result = PasswordStrengthCheckerTypeEnum.WEAK;
+        }
+        if (size >= 4)
+        {
+            result = PasswordStrengthCheckerTypeEnum.STRONG;
+        }
+        if (size >= 5)
+        {
+            result = PasswordStrengthCheckerTypeEnum.STRONGEST;
+        }
+        return result;
+    }    	
+    ]]>
+	</p:javacode>
+ 
+</html>
