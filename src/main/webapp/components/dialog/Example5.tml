@@ -1,0 +1,45 @@
+<html t:type="componentDemoLayout" title="Dialog demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page displays a dialog component with rich content. <br />
+   		The <b>targetHtmlId</b> parameter must be set to target the HTML element displayed into the Dialog.<br />
+   		<br />
+		Notice the <b>beforeDialogValidation</b> Javascript handler used to validate the form before submit.<br />
+   </p:description>
+
+	<p:code>
+		<t:form>
+			<t:submit t:id="submit1" t:mixins="exanpe/dialog" t:targetHtmlId="userInfos" />
+			<br />
+			<span>User name: ${username}</span>
+			<br />
+			
+			<div id="userInfos">
+				<t:label for="username">
+					<span>Please type in your user name :</span>
+				</t:label>
+				<t:textfield t:id="username" value="username"></t:textfield>
+			</div>
+			
+		</t:form>			
+		<script type="text/javascript">
+			<!--
+			YAHOO.util.Event.onDOMReady(function(){
+				// before validation
+				submit1.beforeDialogValidation = function(){
+					var error = "";
+					if (YAHOO.util.Dom.get("username").value == "") { 
+						error = "Your user name is required!";
+					}
+					return error;
+				};				
+				
+			});
+			// -->
+		</script>			
+	</p:code>
+    
+</html>

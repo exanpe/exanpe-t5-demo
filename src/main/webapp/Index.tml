@@ -67,6 +67,7 @@
 					<li><t:pagelink page="components/dialog/example2">A Dialog displaying a confirmation</t:pagelink></li>
 					<li><t:pagelink page="components/dialog/example3">A Dialog with title and message customized</t:pagelink></li>
 					<li><t:pagelink page="components/dialog/example4">A Dialog with title and message consolidated through injected id</t:pagelink></li>
+					<li><t:pagelink page="components/dialog/example5">A Dialog with rich and dynamic content</t:pagelink><img src="${neww}" title="New feature"/></li>
 				</ul>
 			</li>
 			<li><b>Hideable Panel</b>
