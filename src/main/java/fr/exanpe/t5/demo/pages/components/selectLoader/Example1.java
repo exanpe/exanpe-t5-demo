@@ -11,10 +11,10 @@ import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.annotations.SetupRender;
 import org.apache.tapestry5.internal.OptionModelImpl;
 import org.apache.tapestry5.internal.SelectModelImpl;
-import org.apache.tapestry5.internal.services.EnumValueEncoderFactory;
 import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.util.EnumSelectModel;
+import org.apache.tapestry5.util.EnumValueEncoder;
 
 import fr.exanpe.t5.demo.data.CountryEnum;
 import fr.exanpe.t5.demo.services.DataService;
@@ -29,7 +29,7 @@ public class Example1
     private Messages messages;
 
     @Property
-    private ValueEncoder<CountryEnum> countryEncoder = new EnumValueEncoderFactory().create(CountryEnum.class);
+    private ValueEncoder<CountryEnum> countryEncoder = new EnumValueEncoder(CountryEnum.class);
 
     @Property
     private SelectModel country;
