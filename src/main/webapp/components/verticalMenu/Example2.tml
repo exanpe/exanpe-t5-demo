@@ -20,9 +20,9 @@
     
     <p:notice>
 item1-title=Item 1<br />
-item1-icon=context:context:/img/verticalMenu/bt_menu.gif<br />
+item1-icon=context:/img/verticalMenu/bt_vmenu.gif<br />
 item2-title=Item 2<br />
-item2-icon=context:context:/img/verticalMenu/bt_menu.gif<br />
+item2-icon=context:/img/verticalMenu/bt_vmenu.gif<br />
     </p:notice>
     
 </html>
