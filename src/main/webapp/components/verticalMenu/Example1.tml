@@ -31,7 +31,10 @@
   			This is the second menu item
   			<br /> with long HTML content
   		</ex:verticalMenuItem>
-  		<ex:verticalMenuItem t:id="external" t:title="literal:Google" t:icon="asset:context:/img/verticalMenu/google-ico.png" t:target="_blank" />
+  		<ex:verticalMenuItem t:id="external" 
+  		                     t:title="literal:Google" 
+  		                     t:icon="asset:context:/img/verticalMenu/google-ico.png" 
+  		                     t:target="_blank" />
 	</ex:verticalMenu>
 	</div>
 	</p:code>
