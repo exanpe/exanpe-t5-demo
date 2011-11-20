@@ -3,24 +3,29 @@ package fr.exanpe.t5.demo.services;
 import java.io.IOException;
 
 import org.apache.tapestry5.SymbolConstants;
+import org.apache.tapestry5.ValueEncoder;
 import org.apache.tapestry5.ioc.Configuration;
 import org.apache.tapestry5.ioc.MappedConfiguration;
 import org.apache.tapestry5.ioc.OrderedConfiguration;
 import org.apache.tapestry5.ioc.ServiceBinder;
+import org.apache.tapestry5.ioc.annotations.Contribute;
 import org.apache.tapestry5.ioc.annotations.Local;
 import org.apache.tapestry5.ioc.annotations.SubModule;
-import org.apache.tapestry5.ioc.services.Coercion;
 import org.apache.tapestry5.ioc.services.CoercionTuple;
 import org.apache.tapestry5.services.Request;
 import org.apache.tapestry5.services.RequestFilter;
 import org.apache.tapestry5.services.RequestHandler;
 import org.apache.tapestry5.services.Response;
+import org.apache.tapestry5.services.ValueEncoderFactory;
+import org.apache.tapestry5.services.ValueEncoderSource;
 import org.apache.tapestry5.util.StringToEnumCoercion;
 import org.slf4j.Logger;
 
-import fr.exanpe.t5.demo.data.CountryEnum;
-import fr.exanpe.t5.demo.data.FranceCityEnum;
+import fr.exanpe.t5.demo.data.City;
+import fr.exanpe.t5.demo.data.Country;
 import fr.exanpe.t5.demo.data.ThirdEnum;
+import fr.exanpe.t5.demo.encoders.CityEncoder;
+import fr.exanpe.t5.demo.encoders.CountryEncoder;
 import fr.exanpe.t5.lib.services.ExanpeLibraryModule;
 
 /**
@@ -126,23 +131,33 @@ public class AppModule
     public static void contributeTypeCoercer(@SuppressWarnings("rawtypes")
     Configuration<CoercionTuple> configuration)
     {
-        configuration.add(CoercionTuple.create(String.class, CountryEnum.class, StringToEnumCoercion.create(CountryEnum.class)));
-        configuration.add(CoercionTuple.create(String.class, FranceCityEnum.class, StringToEnumCoercion.create(FranceCityEnum.class)));
         configuration.add(CoercionTuple.create(String.class, ThirdEnum.class, StringToEnumCoercion.create(ThirdEnum.class)));
-        // configuration.add(CoercionTuple.create(String.class, CountryEnum.class,
-        // StringToEnumCoercion.create(CountryEnum.class)));
-        // configuration.add(CoercionTuple.create(String.class, CountryEnum.class,
-        // StringToEnumCoercion.create(CountryEnum.class)));
+    }
 
-        Coercion<CountryEnum, String> countryEnum = new Coercion<CountryEnum, String>()
+    @Contribute(ValueEncoderSource.class)
+    public static void provideCountryEncoder(MappedConfiguration<Class, ValueEncoderFactory> configuration, final DataService dataService)
+    {
+        ValueEncoderFactory<Country> factory = new ValueEncoderFactory<Country>()
         {
-            public String coerce(CountryEnum input)
+            public ValueEncoder<Country> create(Class<Country> clazz)
             {
-                return input.toString();
+                return new CountryEncoder(dataService);
             }
         };
+        configuration.add(Country.class, factory);
+    }
 
-        configuration.add(new CoercionTuple<CountryEnum, String>(CountryEnum.class, String.class, countryEnum));
+    @Contribute(ValueEncoderSource.class)
+    public static void provideCityEncoder(MappedConfiguration<Class, ValueEncoderFactory> configuration, final DataService dataService)
+    {
+        ValueEncoderFactory<City> factory = new ValueEncoderFactory<City>()
+        {
+            public ValueEncoder<City> create(Class<City> clazz)
+            {
+                return new CityEncoder(dataService);
+            }
+        };
+        configuration.add(City.class, factory);
     }
 
 }

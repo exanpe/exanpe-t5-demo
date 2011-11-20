@@ -10,7 +10,8 @@
 
 	<p:code>
 		<t:form>
-			<t:select t:mixins="exanpe/selectLoader" t:targetId="city" t:id="country" model="country" value="countryValue" encoder="countryEncoder"/>
+			<t:select t:mixins="exanpe/selectLoader" t:targetId="city" t:id="country" 
+					  model="countryModel" value="countryValue" encoder="countryEncoder"/>
 	
 			<script type="text/javascript">
 			YAHOO.util.Event.onDOMReady(function(){
@@ -20,15 +21,17 @@
 			});
 			</script>
 	
-			<t:select t:mixins="exanpe/selectLoader" t:targetId="type" t:id="city" model="city" value="cityValue"/>
+			<t:select t:mixins="exanpe/selectLoader" t:targetId="type" t:id="city" 
+					  model="cityModel" value="cityValue" encoder="cityEncoder" />
 			
-			<t:select t:id="type" model="type" value="typeValue"/>
+			<t:select t:id="type" model="typeModel" value="typeValue" blankOption="never"/>
 			
 			<t:submit/>
 		</t:form>
-		Submitted country : ${countryValue }<br/>
-		Submitted city : ${cityValue }<br/>
-		Submitted type : ${typeValue }<br/>
+		
+		Submitted country : ${countryValue?.id}<br/>
+		Submitted city : ${cityValue?.id}<br/>
+		Submitted type : ${typeValue}<br/>
 	</p:code>
 	
 	<p:javacode><![CDATA[

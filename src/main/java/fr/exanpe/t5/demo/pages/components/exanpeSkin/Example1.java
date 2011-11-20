@@ -9,10 +9,11 @@ import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.annotations.SetupRender;
 import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
-import org.apache.tapestry5.util.EnumSelectModel;
-import org.apache.tapestry5.util.EnumValueEncoder;
+import org.apache.tapestry5.services.SelectModelFactory;
 
+import fr.exanpe.t5.demo.data.Country;
 import fr.exanpe.t5.demo.data.User;
+import fr.exanpe.t5.demo.encoders.CountryEncoder;
 import fr.exanpe.t5.demo.services.DataService;
 
 @Import(stylesheet = "${exanpe.asset-base}/css/exanpe-t5-lib-skin.css")
@@ -42,19 +43,19 @@ public class Example1
 
     /** Palette **/
 
-    @Property
-    private final ValueEncoder<PaletteEnum> encoder = new EnumValueEncoder(PaletteEnum.class);
+    @Inject
+    private SelectModelFactory selectModelFactory;
 
     @Property
-    private final SelectModel model = new EnumSelectModel(PaletteEnum.class, messages);
+    private SelectModel countryModel;
 
-    @Property
-    private List<PaletteEnum> selected;
-
-    public enum PaletteEnum
+    public ValueEncoder<Country> getCountryEncoder()
     {
-        TEST, TEST2, TEST3, TEST4;
+        return new CountryEncoder(dataService);
     }
+
+    @Property
+    private List<Country> selected;
 
     /** BeanEditor */
     @Property
@@ -63,6 +64,13 @@ public class Example1
     @SetupRender
     public void init()
     {
+        // list of users
         users = dataService.getListUsers();
+
+        // invoke my service to find all countries, e.g. in the database
+        List<Country> countries = dataService.getCountryList();
+
+        // create a SelectModel from my list of countries
+        countryModel = selectModelFactory.create(countries, "name");
     }
 }

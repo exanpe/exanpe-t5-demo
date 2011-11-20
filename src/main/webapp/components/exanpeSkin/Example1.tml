@@ -42,8 +42,10 @@
 			
 			<b>Palette :</b><br/>	
 			<t:form>
-				<t:palette t:id="handling" encoder="encoder" model="model" selected="selected"
-				select="asset:classpath:fr/exanpe/t5/lib/components/img/t5/select.png" deselect="asset:classpath:fr/exanpe/t5/lib/components/img/t5/deselect.png"/>
+				<t:palette t:id="handling" 
+					         encoder="countryEncoder" model="countryModel" selected="selected"
+			 	           select="asset:classpath:fr/exanpe/t5/lib/components/img/t5/select.png" 
+			 	           deselect="asset:classpath:fr/exanpe/t5/lib/components/img/t5/deselect.png"/>
 			</t:form>
 			<hr/>
 			

@@ -10,62 +10,70 @@
 
 	<p:code>
 		<t:form>
-			<t:select t:mixins="exanpe/selectLoader" t:targetId="city" t:id="country" model="country" value="countryValue" encoder="countryEncoder"/>
+			<t:select t:id="country" t:mixins="exanpe/selectLoader" t:targetId="city"  
+					  model="countryModel" value="countryValue" encoder="countryEncoder"/>
 	
-			<t:select t:id="city" model="city" value="cityValue"/>
+			<t:select t:id="city" model="cityModel" value="cityValue"/>
 			
 			<t:submit/>
 		</t:form>
-		Submitted country : ${countryValue }<br/>
-		Submitted city : ${cityValue }<br/>
+		
+		Submitted country label : ${countryValue?.name}<br/>
+		Submitted city label : ${cityValue?.name}<br/>
 	</p:code>
 	
 	<p:javacode><![CDATA[
+    @Inject
+    private SelectModelFactory selectModelFactory;
+
     @Property
-    private SelectModel country;
+    private SelectModel countryModel;
 
     @Property
     @Persist(PersistenceConstants.FLASH)
-    private CountryEnum countryValue;
+    private Country countryValue;
+
+    @Property
+    private SelectModel cityModel;
 
     @Property
     @Persist(PersistenceConstants.FLASH)
-    private SelectModel city;
+    private City cityValue;
 
-    @Property
-    @Persist(PersistenceConstants.FLASH)
-    private String cityValue;
+    @Inject
+    private DataService dataService;
 
     @SetupRender
     public void ini()
     {
-        country = new EnumSelectModel(CountryEnum.class, messages);
-        if (city == null)
-            city = new SelectModelImpl(new OptionModelImpl[0]);
-    }
+        // invoke my service to find all countries, e.g. in the database
+        List<Country> countries = dataService.getCountryList();
 
-    public void onSubmit()
-    {
-        if (countryValue != null)
-        	city = populateSelect(countryValue.toString());
+        // create a SelectModel from my list of countries
+        countryModel = selectModelFactory.create(countries, "name");
+
+        // init cityModel
+        loadCitySelect();
     }
 
     @OnEvent(value = ExanpeEventConstants.SELECTLOADER_EVENT)
     public SelectModel populateSelect(String value)
     {
-    	if (StringUtils.isEmpty(value))
-            return null;
-    
-        String[] cities = dataService.getCitiesFromCountry(CountryEnum.valueOf(value));
+        cityModel = selectModelFactory.create(dataService.getCitiesByCountry(value), "name");
+        return cityModel;
+    }
 
-        OptionModel[] om = new OptionModel[cities.length];
+    private void loadCitySelect()
+    {
+        if (countryValue == null)
+            cityModel = new SelectModelImpl(new OptionModelImpl[0]);
+        else
+            cityModel = populateSelect(countryValue.getId());
+    }
 
-        for (int i = 0; i &lt; cities.length; i++)
-            om[i] = new OptionModelImpl(cities[i]);
-
-        city = new SelectModelImpl(om);
-
-        return city;
+    public ValueEncoder<Country> getCountryEncoder()
+    {
+        return new CountryEncoder(dataService);
     }
 	]]></p:javacode>
 	

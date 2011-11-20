@@ -14,99 +14,106 @@ import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.annotations.SetupRender;
 import org.apache.tapestry5.internal.OptionModelImpl;
 import org.apache.tapestry5.internal.SelectModelImpl;
-import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
-import org.apache.tapestry5.util.EnumSelectModel;
-import org.apache.tapestry5.util.EnumValueEncoder;
+import org.apache.tapestry5.services.Request;
+import org.apache.tapestry5.services.SelectModelFactory;
 
-import fr.exanpe.t5.demo.data.CountryEnum;
+import fr.exanpe.t5.demo.data.City;
+import fr.exanpe.t5.demo.data.Country;
 import fr.exanpe.t5.demo.data.ThirdEnum;
+import fr.exanpe.t5.demo.encoders.CityEncoder;
+import fr.exanpe.t5.demo.encoders.CountryEncoder;
 import fr.exanpe.t5.demo.services.DataService;
 import fr.exanpe.t5.lib.constants.ExanpeEventConstants;
 
 public class Example2
 {
     @Inject
-    private DataService dataService;
+    private SelectModelFactory selectModelFactory;
+
+    @Property
+    private SelectModel countryModel;
+
+    @Property
+    @Persist(PersistenceConstants.FLASH)
+    private Country countryValue;
+
+    @Property
+    private SelectModel cityModel;
+
+    @Property
+    @Persist(PersistenceConstants.FLASH)
+    private City cityValue;
 
     @Inject
-    private Messages messages;
+    private DataService dataService;
 
     @Property
-    private ValueEncoder<CountryEnum> countryEncoder = new EnumValueEncoder(CountryEnum.class);
-
-    @Property
-    private SelectModel country;
-
-    @Property
-    private SelectModel city;
-
-    @Property
-    private SelectModel type;
-
-    @Property
-    @Persist(PersistenceConstants.FLASH)
-    private CountryEnum countryValue;
-
-    @Property
-    @Persist(PersistenceConstants.FLASH)
-    private String cityValue;
+    private SelectModel typeModel;
 
     @Property
     @Persist(PersistenceConstants.FLASH)
     private String typeValue;
 
+    @Inject
+    private Request request;
+
     @SetupRender
     public void ini()
     {
-        country = new EnumSelectModel(CountryEnum.class, messages);
+        // invoke my service to find all countries, e.g. in the database
+        List<Country> countries = dataService.getCountryList();
+
+        // create a SelectModel from my list of countries
+        countryModel = selectModelFactory.create(countries, "name");
+
+        // load city and type select
         loadCitySelect();
         loadTypeSelect();
-
     }
 
     private void loadCitySelect()
     {
         if (countryValue == null)
-            city = new SelectModelImpl(new OptionModelImpl[0]);
+            cityModel = new SelectModelImpl(new OptionModelImpl[0]);
         else
-        {
-            List<OptionModel> opts = createCityOpt(countryValue.toString());
-            OptionModel[] om = new OptionModel[opts.size()];
-            city = new SelectModelImpl((OptionModel[]) opts.toArray(om));
-        }
+            cityModel = populateCitySelect(countryValue.getId());
     }
 
     private void loadTypeSelect()
     {
         if (cityValue == null)
-            type = new SelectModelImpl(new OptionModelImpl[0]);
+            typeModel = new SelectModelImpl(new OptionModelImpl[0]);
         else
         {
             List<OptionModel> opts = createTypeOpt(cityValue.toString());
             OptionModel[] om = new OptionModel[opts.size()];
-            type = new SelectModelImpl((OptionModel[]) opts.toArray(om));
+            typeModel = new SelectModelImpl((OptionModel[]) opts.toArray(om));
         }
     }
 
-    public void onSubmit()
-    {
-
-    }
-
-    private List<OptionModel> createCityOpt(String value)
+    @OnEvent(value = ExanpeEventConstants.SELECTLOADER_EVENT, component = "country")
+    public SelectModel populateCitySelect(String value)
     {
         if (StringUtils.isEmpty(value))
             return null;
 
-        List<OptionModel> opts = new ArrayList<OptionModel>();
+        cityModel = selectModelFactory.create(dataService.getCitiesByCountry(value), "name");
+        if (request.isXHR())
+        {
+            cityModel.getOptions().add(0, new OptionModelImpl("", new City("", "")));
+        }
+        return cityModel;
+    }
 
-        String[] cities = dataService.getCitiesFromCountry(CountryEnum.valueOf(value));
+    @OnEvent(value = ExanpeEventConstants.SELECTLOADER_EVENT, component = "city")
+    public SelectModel populateSelectType(String value)
+    {
+        List<OptionModel> opts = createTypeOpt(value);
 
-        for (int i = 0; i < cities.length; i++)
-            opts.add(new OptionModelImpl(cities[i]));
+        OptionModel[] om = new OptionModel[opts.size()];
 
-        return opts;
+        return new SelectModelImpl((OptionModel[]) opts.toArray(om));
     }
 
     private List<OptionModel> createTypeOpt(String value)
@@ -124,24 +131,13 @@ public class Example2
         return opts;
     }
 
-    @OnEvent(value = ExanpeEventConstants.SELECTLOADER_EVENT, component = "country")
-    public SelectModel populateSelectCity(String value)
+    public ValueEncoder<Country> getCountryEncoder()
     {
-        List<OptionModel> opts = createCityOpt(value);
-        opts.add(0, new OptionModelImpl(" ", " "));
-
-        OptionModel[] om = new OptionModel[opts.size()];
-
-        return new SelectModelImpl((OptionModel[]) opts.toArray(om));
+        return new CountryEncoder(dataService);
     }
 
-    @OnEvent(value = ExanpeEventConstants.SELECTLOADER_EVENT, component = "city")
-    public SelectModel populateSelectType(String value)
+    public ValueEncoder<City> getCityEncoder()
     {
-        List<OptionModel> opts = createTypeOpt(value);
-
-        OptionModel[] om = new OptionModel[opts.size()];
-
-        return new SelectModelImpl((OptionModel[]) opts.toArray(om));
+        return new CityEncoder(dataService);
     }
 }

@@ -161,6 +161,10 @@
 			<id>exanpe-staging</id>
 			<url>https://oss.sonatype.org/content/repositories/staging/</url>
 		</repository>
+		<repository>
+			<id>apache-staging</id>
+			<url>https://repository.apache.org/content/groups/staging/</url>
+		</repository>
 	</repositories>	
 
 	<properties>
