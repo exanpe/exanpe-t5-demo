@@ -14,7 +14,7 @@
 		<dependency>
 			<groupId>fr.exanpe</groupId>
 			<artifactId>exanpe-t5-lib</artifactId>
-			<version>1.1.0-SNAPSHOT</version>
+			<version>1.1.0</version>
 		</dependency>
 	
 		<dependency>
@@ -169,7 +169,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<tapestry-release-version>5.2.6</tapestry-release-version>
+		<tapestry-release-version>5.3-rc-3</tapestry-release-version>
 		<gae.version>1.5.1</gae.version>
 	</properties>
 </project>
