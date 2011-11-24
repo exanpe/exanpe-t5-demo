@@ -37,7 +37,7 @@
 					<li><t:pagelink page="components/ajaxLoader/example4">Ajax Loader loaded on demand, without panel and with highlighting effect</t:pagelink></li>
 				</ul>
 			</li>
-			<li><b>AjaxValidation</b><img src="${neww}" title="New feature"/>
+			<li><b>AjaxValidation</b>
 				<ul>
 					<li><t:pagelink page="components/ajaxValidation/example1">Basic AjaxValidation on a textfield</t:pagelink></li>
 					<li><t:pagelink page="components/ajaxValidation/example2">AjaxValidation error message from property file</t:pagelink></li>
@@ -67,7 +67,7 @@
 					<li><t:pagelink page="components/dialog/example2">A Dialog displaying a confirmation</t:pagelink></li>
 					<li><t:pagelink page="components/dialog/example3">A Dialog with title and message customized</t:pagelink></li>
 					<li><t:pagelink page="components/dialog/example4">A Dialog with title and message consolidated through injected id</t:pagelink></li>
-					<li><t:pagelink page="components/dialog/example5">A Dialog with rich and dynamic content</t:pagelink><img src="${neww}" title="New feature"/></li>
+					<li><t:pagelink page="components/dialog/example5">A Dialog with rich and dynamic content</t:pagelink></li>
 				</ul>
 			</li>
 			<li><b>Hideable Panel</b>
@@ -76,7 +76,7 @@
 					<li><t:pagelink page="components/hideablePanel/example2">A Hideable Panel with some customing and JavaScript interaction</t:pagelink></li>
 				</ul>
 			</li>
-			<li><b>MenuBar / Menu</b><img src="${neww}" title="New feature"/>
+			<li><b>MenuBar / Menu</b>
 				<ul>
 					<li><t:pagelink page="components/menu/example1">A basic one level MenuBar</t:pagelink></li>
 					<li><t:pagelink page="components/menu/example2">A MenuBar with some sub levels</t:pagelink></li>
@@ -87,7 +87,7 @@
 		</ul>
 	</td><td width="50%" style="border-left:1px solid silver">	
 		<ul>
-			<li><b>Password Strength Checker</b><img src="${neww}" title="New feature"/>
+			<li><b>Password Strength Checker</b>
 				<ul>
 					<li><t:pagelink page="components/passwordStrengthChecker/example1">A Client-side example</t:pagelink></li>
 					<li><t:pagelink page="components/passwordStrengthChecker/example2">A Server-side example</t:pagelink></li>
@@ -130,7 +130,7 @@
 					<li><t:pagelink page="components/tooltip/example3">Tooltip displaying a rich content defined in the page</t:pagelink></li>
 				</ul>
 			</li>
-			<li><b>VerticalMenu</b><img src="${neww}" title="New feature"/>
+			<li><b>VerticalMenu</b>
 				<ul>
 					<li><t:pagelink page="components/verticalMenu/example1">A basic VerticalMenu</t:pagelink></li>
 					<li><t:pagelink page="components/verticalMenu/example2">A VerticalMenu with item title and item icon loaded from resource file</t:pagelink></li>
