@@ -1,0 +1,81 @@
+<html t:type="componentDemoLayout" title="Authorize annotation demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page displays the <b>authorize annotation</b> on a Page.<br/>
+   		This allows you to restrict a specific page access. On access denied, an fr.exanpe.t5.lib.exception.AuthorizeException is thrown.<br/>
+   		It's up to you to catch it and redirect to a user friendly page.<br/>
+   		As for the Authorize component and mixin, role definition can be controlled with <b>any</b>, <b>all</b> and <b>not</b> rules.<br/>
+   		
+   		<ul>
+   			<li>Select a role and submit it to "commit" your choice.</li>
+   			<li>Click a link to access a restricted area</li>
+   			<li>Admin have full access, User have user and anonymous accesses, and Anonymous have nothing</li> 
+   			<li>An custom error page has been defined and is referenced (NotAuthorized page)</li>
+   		</ul>
+   		Please not that in the annotation the roles are not declared with comma (,) separated values, but as an String[].
+   </p:description>
+
+	<p:code>
+		<!-- form -->
+		<t:form>
+			<fieldset>
+				<legend>Choose your role :</legend>
+				<t:radiogroup t:id="role" t:value="role">
+		            <t:radio t:value="literal:ADMIN"/> Admin<br/>
+		            <t:radio t:value="literal:USER"/> User<br/>
+		            <t:radio t:value="literal:ANONYMOUS"/> Anonymous<br/>
+		        </t:radiogroup>
+		        <t:submit/>
+	        </fieldset>
+		</t:form>
+		<br/><hr/><br/>
+		
+		Your current role is <b>${currentRole }</b> : <br/><br/>
+		
+		<t:pagelink page="components/authorize/Example5Admin">Show admin page</t:pagelink><br/>
+		<t:pagelink page="components/authorize/Example5User">Show user page</t:pagelink>
+	</p:code>
+	
+	<p:javaCode><![CDATA[
+	Example5Admin.java :
+	
+	@Authorize(any = "ROLE_ADMIN")
+	public class Example4Admin extends BaseAuthorize
+	{
+	
+	}
+	
+	
+	Example5User.java :
+	
+	@Authorize(any =
+	{ "ROLE_ADMIN", "ROLE_USER" })
+	public class Example4User extends BaseAuthorize
+	{
+	
+	}
+	
+	
+	XXXModule.java :
+	
+	 public RequestExceptionHandler decorateRequestExceptionHandler(final Logger logger, final ResponseRenderer renderer, final ComponentSource componentSource,
+            Object service)
+    {
+        return new RequestExceptionHandler()
+        {
+            public void handleRequestException(Throwable exception) throws IOException
+            {
+                if (exception instanceof AuthorizeException)
+                {
+                    renderer.renderPageMarkupResponse("NotAuthorized");
+                }
+            }
+        };
+    }
+	
+	]]></p:javaCode>
+    
+</html>

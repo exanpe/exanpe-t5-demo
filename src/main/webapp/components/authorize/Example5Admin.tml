@@ -1,0 +1,10 @@
+<html t:type="componentDemoLayout" title="Authorize demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		Hello <span style="color:red">Admin</span>
+   </p:description>
+    
+</html>

@@ -44,6 +44,15 @@
 					<li><t:pagelink page="components/ajaxValidation/example3">AjaxValidation stacked with a standard validation</t:pagelink></li>
 				</ul>
 			</li>
+			<li><b>Authorize</b>
+				<ul>
+					<li><t:pagelink page="components/authorize/example1">Authorize component example in a tml</t:pagelink></li>
+					<li><t:pagelink page="components/authorize/example2">Render a block according to user role using Authorize component</t:pagelink></li>
+					<li><t:pagelink page="components/authorize/example3">Authorize mixin example in a tml</t:pagelink></li>
+					<li><t:pagelink page="components/authorize/example4">Authorize annotation example on a method</t:pagelink></li>
+					<li><t:pagelink page="components/authorize/example5">Authorize annotation example on a page class</t:pagelink></li>
+				</ul>
+			</li>
 			<li><b>Border</b>
 				<ul>
 					<li><t:pagelink page="components/border/example1">A simple Border</t:pagelink></li>

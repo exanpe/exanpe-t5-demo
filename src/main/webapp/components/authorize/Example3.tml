@@ -1,0 +1,56 @@
+<html t:type="componentDemoLayout" title="Authorize mixin demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page displays the <b>authorize mixin</b> in a tml template. 
+   		This allows you to apply the authorizations on any existing tml element.<br/><br/>
+   		Role definition can be controlled with <b>any</b>, <b>all</b> and <b>not</b> rules. <br/>
+   		Have a look at the TML Source code to see what really happens !
+   </p:description>
+
+	<p:code>
+		<!-- form -->
+		<t:form>
+			<fieldset>
+				<legend>Choose your role :</legend>
+				<t:radiogroup t:id="role" t:value="role">
+		            <t:radio t:value="literal:ADMIN"/> Admin<br/>
+		            <t:radio t:value="literal:USER"/> User<br/>
+		            <t:radio t:value="literal:ANONYMOUS"/> Anonymous<br/>
+		        </t:radiogroup>
+		        <t:submit/>
+	        </fieldset>
+		</t:form>
+		<br/><hr/><br/>
+		
+		Your current role is <b>${currentRole }</b> : <br/><br/>
+		
+		<fieldset>
+			<legend>Content displayed according to role :</legend>
+			
+			<t:pagelink 
+				page="Index"
+				t:mixins="exanpe/AuthorizeMixin"
+				t:any="ROLE_USER,ROLE_ADMIN">
+					This link is displayed for User or Admin
+			</t:pagelink><br/><hr/><br/>
+			
+			<t:pagelink 
+				page="Index"
+				t:mixins="exanpe/AuthorizeMixin"
+				t:any="ROLE_USER">
+					This link is displayed for User only
+			</t:pagelink><br/><hr/><br/>
+			
+			<t:any 
+				t:mixins="exanpe/AuthorizeMixin"
+				t:not="ROLE_USER, ROLE_ADMIN">
+				If you see this, you have selected the role Anonymous or have no role (not User nor Admin).
+			</t:any>
+		</fieldset>
+		<br/><br/>
+	</p:code>
+    
+</html>
