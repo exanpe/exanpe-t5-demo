@@ -12,10 +12,14 @@ import org.apache.tapestry5.ioc.annotations.Contribute;
 import org.apache.tapestry5.ioc.annotations.Local;
 import org.apache.tapestry5.ioc.annotations.SubModule;
 import org.apache.tapestry5.ioc.services.CoercionTuple;
+import org.apache.tapestry5.services.ComponentRequestFilter;
+import org.apache.tapestry5.services.ComponentSource;
 import org.apache.tapestry5.services.Request;
+import org.apache.tapestry5.services.RequestExceptionHandler;
 import org.apache.tapestry5.services.RequestFilter;
 import org.apache.tapestry5.services.RequestHandler;
 import org.apache.tapestry5.services.Response;
+import org.apache.tapestry5.services.ResponseRenderer;
 import org.apache.tapestry5.services.ValueEncoderFactory;
 import org.apache.tapestry5.services.ValueEncoderSource;
 import org.apache.tapestry5.util.StringToEnumCoercion;
@@ -26,6 +30,8 @@ import fr.exanpe.t5.demo.data.Country;
 import fr.exanpe.t5.demo.data.ThirdEnum;
 import fr.exanpe.t5.demo.encoders.CityEncoder;
 import fr.exanpe.t5.demo.encoders.CountryEncoder;
+import fr.exanpe.t5.lib.exception.AuthorizeException;
+import fr.exanpe.t5.lib.internal.contextpagereset.ContextPageResetFilter;
 import fr.exanpe.t5.lib.services.ExanpeLibraryModule;
 
 /**
@@ -45,6 +51,7 @@ public class AppModule
         // invoking the constructor.
         binder.bind(DataService.class, DataService.class);
         binder.bind(MailboxService.class, MailboxService.class);
+        binder.bind(AuthenticationService.class, AuthenticationService.class);
     }
 
     public static void contributeApplicationDefaults(MappedConfiguration<String, String> configuration)
@@ -160,4 +167,23 @@ public class AppModule
         configuration.add(City.class, factory);
     }
 
+    public RequestExceptionHandler decorateRequestExceptionHandler(final Logger logger, final ResponseRenderer renderer, final ComponentSource componentSource,
+            Object service)
+    {
+        return new RequestExceptionHandler()
+        {
+            public void handleRequestException(Throwable exception) throws IOException
+            {
+                if (exception instanceof AuthorizeException)
+                {
+                    renderer.renderPageMarkupResponse("NotAuthorized");
+                }
+            }
+        };
+    }
+
+    public void contributeComponentRequestHandler(OrderedConfiguration<ComponentRequestFilter> configuration)
+    {
+        configuration.addInstance("ContextPageResetFilter", ContextPageResetFilter.class);
+    }
 }

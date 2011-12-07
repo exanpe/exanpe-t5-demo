@@ -1,0 +1,27 @@
+<html t:type="componentDemoLayout" title="ContextPageReset demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page displays the <b>@ContextPageReset</b> annotation in a class.<br/><br/>
+   		It demonstrates an example with a real context that must be passed to the page activation. No conflict occurs as "init" is removed before page activation.
+   </p:description>
+
+	<p:code>
+		<!-- form -->
+		<t:form>
+			<fieldset>
+				<legend>Set a persistant value :</legend>
+				Value to submit : <t:textfield value="value"/>
+		        <t:submit/><br/><br/>
+				Value persisted : ${value }<br/>
+				Context sent : ${context }
+	        </fieldset>
+		</t:form>
+		<br/><hr/><br/>
+		<t:pagelink page="components/contextpagereset/example2" context="literal:2">Refresh page, sending context value 2</t:pagelink><br/><br/>
+		<t:pagelink page="components/contextpagereset/example2" context="['init', 2]">Refresh page, sending context value 2, and reseting</t:pagelink><br/><br/>
+	</p:code>
+    
+</html>

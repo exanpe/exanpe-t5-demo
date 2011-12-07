@@ -1,0 +1,69 @@
+<html t:type="componentDemoLayout" title="ContextPageReset demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page displays the <b>@ContextPageReset</b> annotation in a class.<br/><br/>
+   		Its purpose is to trigger the same behavior than a @PageReset, but base on the presence of a token as page context.<br/><br/>
+   		
+   		<b>This functionality is disabled by default as it might create regressions (if your application contains page named "init").
+   		To enable it, add the ContextPageResetFilter to your Module class</b><br/><br/>
+   		
+   		By default, "init" is the context token marker listened to trigger a method annotated with @ContextPageReset. This token can be overriden with a Symbol (see services documentation).<br/><br/>
+   		A method "void onActivate()" also have to be present in the page to trigger the reset with Tapestry 5.3.<br/>
+   		<ul>
+   			<li>Submit a value</li>
+   			<li>Refresh the page on will, the value keeps persisted in the Page class</li>
+   			<li>Refresh the page with "init" context, the value gets deleted by method "resetPersist()" in the Page class</li>
+   		</ul>
+   		
+   		Notice the /init appended to the URL, marker of a required reset.
+   </p:description>
+
+	<p:code>
+		<!-- form -->
+		<t:form>
+			<fieldset>
+				<legend>Set a persistant value :</legend>
+				Value to submit : <t:textfield value="value"/>
+		        <t:submit/><br/><br/>
+				Value persisted : ${value }
+	        </fieldset>
+		</t:form>
+		<br/><hr/><br/>
+		<t:pagelink page="components/contextpagereset/example1">Refresh page</t:pagelink><br/><br/>
+		<t:pagelink page="components/contextpagereset/example1" context="literal:init">Refresh page and reset</t:pagelink><br/><br/>
+	</p:code>
+	
+	<p:javaCode><![CDATA[
+	Example1.java :
+	
+	public class Example1
+	{
+	    @Persist
+	    @Property
+	    private String value;
+	
+	    // required for Tapestry 5.3 compatibility
+	    void onActivate()
+	    {
+	
+	    }
+	
+	    @ContextPageReset
+	    void resetPersist()
+	    {
+	        value = null;
+	    }
+	}
+	
+	
+	AppModule :
+	
+	public void contributeComponentRequestHandler(OrderedConfiguration<ComponentRequestFilter> configuration)
+    {
+        configuration.addInstance("ContextPageResetFilter", ContextPageResetFilter.class);
+    }
+	]]></p:javaCode>    
+</html>
