@@ -14,6 +14,16 @@
 
 	<div class="exanpe-skin">
 		<ex:Border style="width:1040px;">
+			<ex:menubar t:id="menubar" style="text-decoration:none">
+				<ex:menuitem>
+					<t:pagelink page="Index">Back to Index</t:pagelink>
+				</ex:menuitem>
+				<ex:menuitem>
+					<t:pagelink page="components/exanpeSkin/example1">Skin Page</t:pagelink>
+				</ex:menuitem>
+			</ex:menubar>
+			<!-- End Menu -->
+			<br/>
 			<ex:HideablePanel t:id="webmailLayout" hideWidth="200" class="paddingtop">
 				<t:parameter name="hideable">
 					
@@ -45,6 +55,7 @@
 							Here is a case that demonstrate the Exanpe library :
 							<ul>
 								<li>The webmail is wrapped with a <b>Border</b> component.</li>
+								<li>On top of the view, a <b>MenuBar</b> is displayed to allow you to navigate elsewhere in this demo.</li>
 								<li>On the left site, an <b>Accordion</b> groups some actions.</li>
 								<li>The layout is built over a <b>HideablePanel</b>, allowing the right zone to be increased.</li>
 								<li>The right side is structured over a TabView</li>
@@ -57,6 +68,7 @@
 										<li>If you click Delete Mail, a <b>Dialog</b> component appear, informing that we did not implement that functionality.</li>
 									</ul>
 								</li>
+								<li>The whole page/class, well formatted : <b>125 XML lines of code, 120 Java lines of code</b>.</li>
 							</ul>
 						</ex:tab>
 						<t:if test="mailsReceived">

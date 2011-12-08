@@ -44,13 +44,13 @@
 					<li><t:pagelink page="components/ajaxValidation/example3">AjaxValidation stacked with a standard validation</t:pagelink></li>
 				</ul>
 			</li>
-			<li><b>Authorize</b>
+			<li><b>Authorize</b><img src="${neww}" title="New feature"/>
 				<ul>
 					<li><t:pagelink page="components/authorize/example1">Authorize component example in a tml</t:pagelink></li>
 					<li><t:pagelink page="components/authorize/example2">Render a block according to user role using Authorize component</t:pagelink></li>
 					<li><t:pagelink page="components/authorize/example3">Authorize mixin example in a tml</t:pagelink></li>
-					<li><t:pagelink page="components/authorize/example4">Authorize annotation example on a method</t:pagelink></li>
-					<li><t:pagelink page="components/authorize/example5">Authorize annotation example on a page class</t:pagelink></li>
+					<li><t:pagelink page="components/authorize/example4">@Authorize annotation example on a method</t:pagelink></li>
+					<li><t:pagelink page="components/authorize/example5">@Authorize annotation example on a page class</t:pagelink></li>
 				</ul>
 			</li>
 			<li><b>Border</b>
@@ -70,6 +70,12 @@
 					</li>
 				</ul>
 			</li>
+			<li><b>Context Page Reset</b><img src="${neww}" title="New feature"/>
+				<ul>
+					<li><t:pagelink page="components/contextpagereset/example1">@ContextPageReset annotation example</t:pagelink></li>
+					<li><t:pagelink page="components/contextpagereset/example2">@ContextPageReset annotation example, with a real page context</t:pagelink></li>
+				</ul>
+			</li>
 			<li><b>Dialog</b>
 				<ul>
 					<li><t:pagelink page="components/dialog/example1">A Dialog presentation displaying an information</t:pagelink></li>
@@ -83,6 +89,12 @@
 				<ul>
 					<li><t:pagelink page="components/hideablePanel/example1">A basic Hideable Panel</t:pagelink></li>
 					<li><t:pagelink page="components/hideablePanel/example2">A Hideable Panel with some customing and JavaScript interaction</t:pagelink></li>
+				</ul>
+			</li>
+			<li><b>List Sorter</b><img src="${neww}" title="New feature"/>
+				<ul>
+					<li><t:pagelink page="components/listSorter/example1" context="literal:init">A standard ListSorter</t:pagelink></li>
+					<li><t:pagelink page="components/listSorter/example2" context="literal:init">A ListSorter with Ajax feature support</t:pagelink></li>
 				</ul>
 			</li>
 			<li><b>MenuBar / Menu</b>

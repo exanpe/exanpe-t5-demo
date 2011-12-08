@@ -1,0 +1,51 @@
+<html t:type="componentDemoLayout" title="ListSorter demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page displays a ListSorter component, with state submitted with the Ajax support.<br/>
+   		Notice the save button, calling the JavaScript component API.<br/>
+   		This list still have to be enclosed inside a form.   		
+   </p:description>
+
+	<p:code>
+		<t:form>
+			<br/>
+			
+			<ex:listSorter t:id="ls" source="list" value="element">
+				${element.firstName } ${element.lastName }, ${element.age } years old
+			</ex:listSorter>		
+			<input type="button" value="Ajax save" onclick="ls.save()"/><br/><br/>
+			
+			<t:pagelink page="components/listSorter/example2">Refresh this page </t:pagelink>: state have been saved
+		</t:form>
+	</p:code>
+    
+    <p:javaCode><![CDATA[
+	public class Example2
+	{
+	    @Persist
+	    @Property
+	    private List<User> list;
+	
+	    @Property
+	    private User element;
+	
+	    void onActivate()
+	    {
+	
+	    }
+	
+	    @ContextPageReset
+	    void cpr()
+	    {
+	        list = new ArrayList<User>();
+	        list.add(new User(1, "John", "Smith", 34));
+	        list.add(new User(1, "Paul", "Carter", 58));
+	        list.add(new User(1, "Simon", "Carpenter", 18));
+	        list.add(new User(1, "Jill", "Valent", 24));
+	    }
+	}    	
+    ]]></p:javaCode>
+</html>

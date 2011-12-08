@@ -1,0 +1,51 @@
+<html t:type="componentDemoLayout" title="ListSorter demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page displays a ListSorter component.<br/>
+   		It allows you to sort a list with a drag and drop.<br/><br/>
+   		
+   		The list has to be nested inside a form and can be submitted with a standard form submit.<br/><br/>
+   		
+   		Notice : It's up to you to provide the rendering of the elements of the list in the list body (as for a t:loop) .
+   </p:description>
+
+	<p:code>
+		<t:form>
+			<br/>Drag and drop these elements, then submit, your list will be sorted on server :<br/><br/>
+			<ex:listSorter source="list" value="element">
+				${element.firstName } ${element.lastName }, ${element.age } years old
+			</ex:listSorter>
+			<t:submit/>
+		</t:form>
+	</p:code>
+    
+    <p:javaCode><![CDATA[
+	public class Example1
+	{
+	    @Persist
+	    @Property
+	    private List<User> list;
+	
+	    @Property
+	    private User element;
+	
+	    void onActivate()
+	    {
+	
+	    }
+	
+	    @ContextPageReset
+	    void cpr()
+	    {
+	        list = new ArrayList<User>();
+	        list.add(new User(1, "John", "Smith", 34));
+	        list.add(new User(1, "Paul", "Carter", 58));
+	        list.add(new User(1, "Simon", "Carpenter", 18));
+	        list.add(new User(1, "Jill", "Valent", 24));
+	    }
+	}    	
+    ]]></p:javaCode>
+</html>
