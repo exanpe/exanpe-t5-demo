@@ -34,17 +34,13 @@
 	
 	    void onActivate()
 	    {
-	
-	    }
-	
-	    @ContextPageReset
-	    void cpr()
-	    {
-	        list = new ArrayList<User>();
-	        list.add(new User(1, "John", "Smith", 34));
-	        list.add(new User(1, "Paul", "Carter", 58));
-	        list.add(new User(1, "Simon", "Carpenter", 18));
-	        list.add(new User(1, "Jill", "Valent", 24));
+		    if(list == null){
+				list = new ArrayList<User>();
+		        list.add(new User(1, "John", "Smith", 34));
+		        list.add(new User(1, "Paul", "Carter", 58));
+		        list.add(new User(1, "Simon", "Carpenter", 18));
+		        list.add(new User(1, "Jill", "Valent", 24));
+		    }
 	    }
 	}    	
     ]]></p:javaCode>
