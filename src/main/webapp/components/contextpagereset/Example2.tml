@@ -5,7 +5,7 @@
 
    <p:description>
    		This page displays the <b>@ContextPageReset</b> annotation in a class.<br/><br/>
-   		It demonstrates an example with a real context that must be passed to the page activation. No conflict occurs as "init" is removed before page activation.
+   		It demonstrates an example with a real context that must be passed to the page activation. No conflict occurs as "reset" is removed before page activation.
    </p:description>
 
 	<p:code>
@@ -20,8 +20,13 @@
 	        </fieldset>
 		</t:form>
 		<br/><hr/><br/>
-		<t:pagelink page="components/contextpagereset/example2" context="literal:2">Refresh page, sending context value 2</t:pagelink><br/><br/>
-		<t:pagelink page="components/contextpagereset/example2" context="['init', 2]">Refresh page, sending context value 2, and reseting</t:pagelink><br/><br/>
+		<t:pagelink page="components/contextpagereset/example2" context="literal:2">
+			Refresh page, sending context value 2
+		</t:pagelink><br/><br/>
+		
+		<t:pagelink page="components/contextpagereset/example2" context="['reset', 2]">
+			Refresh page, sending context value 2, and reseting
+		</t:pagelink>
 	</p:code>
     
 </html>

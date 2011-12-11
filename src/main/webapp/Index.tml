@@ -93,8 +93,8 @@
 			</li>
 			<li><b>List Sorter</b><img src="${neww}" title="New feature"/>
 				<ul>
-					<li><t:pagelink page="components/listSorter/example1" context="literal:init">A standard ListSorter</t:pagelink></li>
-					<li><t:pagelink page="components/listSorter/example2" context="literal:init">A ListSorter with Ajax feature support</t:pagelink></li>
+					<li><t:pagelink page="components/listSorter/example1" context="literal:reset">A standard ListSorter</t:pagelink></li>
+					<li><t:pagelink page="components/listSorter/example2" context="literal:reset">A ListSorter with Ajax feature support</t:pagelink></li>
 				</ul>
 			</li>
 			<li><b>MenuBar / Menu</b>

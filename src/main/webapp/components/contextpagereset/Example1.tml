@@ -7,18 +7,18 @@
    		This page displays the <b>@ContextPageReset</b> annotation in a class.<br/><br/>
    		Its purpose is to trigger the same behavior than a @PageReset, but base on the presence of a token as page context.<br/><br/>
    		
-   		<b>This functionality is disabled by default as it might create regressions (if your application contains page named "init").
+   		<b>This functionality is disabled by default as it might create regressions (if your application contains page named "reset").
    		To enable it, add the ContextPageResetFilter to your Module class</b><br/><br/>
    		
-   		By default, "init" is the context token marker listened to trigger a method annotated with @ContextPageReset. This token can be overriden with a Symbol (see services documentation).<br/><br/>
+   		By default, "reset" is the context token marker listened to trigger a method annotated with @ContextPageReset. This token can be overriden with a Symbol (see services documentation).<br/><br/>
    		A method "void onActivate()" also have to be present in the page to trigger the reset with Tapestry 5.3.<br/>
    		<ul>
    			<li>Submit a value</li>
    			<li>Refresh the page on will, the value keeps persisted in the Page class</li>
-   			<li>Refresh the page with "init" context, the value gets deleted by method "resetPersist()" in the Page class</li>
+   			<li>Refresh the page with "reset" context, the value gets deleted by method "resetPersist()" in the Page class</li>
    		</ul>
    		
-   		Notice the /init appended to the URL, marker of a required reset.
+   		Notice the /reset appended to the URL, marker of a required reset.
    </p:description>
 
 	<p:code>
@@ -33,7 +33,7 @@
 		</t:form>
 		<br/><hr/><br/>
 		<t:pagelink page="components/contextpagereset/example1">Refresh page</t:pagelink><br/><br/>
-		<t:pagelink page="components/contextpagereset/example1" context="literal:init">Refresh page and reset</t:pagelink><br/><br/>
+		<t:pagelink page="components/contextpagereset/example1" context="literal:reset">Refresh page and reset</t:pagelink><br/><br/>
 	</p:code>
 	
 	<p:javaCode><![CDATA[
