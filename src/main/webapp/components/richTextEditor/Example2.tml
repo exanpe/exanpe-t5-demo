@@ -1,0 +1,40 @@
+<html t:type="componentDemoLayout" title="Rich Text Editor demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page displays a Rich Text Editor with default labels overridden.<br/>
+   		The <b>messages</b> parameter is used to override the default messages catalog.<br/><br />
+   		In this example, the alt text of bold, italic, and underline buttons are translated in french.<br /><br />
+   		Available label keys are: <br />
+   		bold, italic, underline, justifyleft, justifycenter, justifyright, createlink, undo, redo, insertunorderedlist, insertorderedlist, heading, none, h1, h2, h3, h4, h5, h6, forecolor, backcolor.<br />
+   </p:description>
+
+	<p:code>
+        <t:form>
+            <t:textarea t:id="rte" value="rte" t:mixins="exanpe/RichTextEditor" t:title="literal:Rich Text Editor" t:messages="messages">
+            </t:textarea>
+            <t:submit/>
+            <br />
+            <p>Submitted text :</p>
+            <t:outputraw value="rte" />
+        </t:form>
+	</p:code>
+    
+    <p:javacode><![CDATA[
+        @Persist(PersistenceConstants.FLASH)
+        @Property
+        private String rte;
+        
+        @Inject
+        @Property
+        private Messages messages;        
+    ]]></p:javacode>
+    
+    <p:notice>
+bold=Gras<br />
+italic=Italique<br />
+underline=Souligné<br /> 
+    </p:notice>    
+</html>

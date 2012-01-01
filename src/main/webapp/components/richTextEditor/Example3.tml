@@ -1,0 +1,32 @@
+<html t:type="componentDemoLayout" title="Rich Text Editor demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This example show how to use <b>exclude</b> parameter with the RichTextEditor mixin.<br/>
+   		This parameter is used as a comma-separated list of button names to be removed from the default editor toolbar.<br />
+   		In this example, we excluded forecolor, and backcolor buttons.<br /><br />
+   		Available button names are: <br />
+   		bold, italic, underline, justifyleft, justifycenter, justifyright, createlink, undo, redo, insertunorderedlist, insertorderedlist, heading, forecolor, backcolor.<br />
+   </p:description>
+
+	<p:code>
+        <t:form>
+            <t:textarea t:id="rte" value="rte" t:mixins="exanpe/RichTextEditor" t:title="literal:Rich Text Editor" 
+                        t:exclude="forecolor, backcolor">
+            </t:textarea>
+            <t:submit/>
+            <br />
+            <p>Submitted text :</p>
+            <t:outputraw value="rte" />
+        </t:form>
+	</p:code>
+    
+    <p:javacode><![CDATA[
+        @Persist(PersistenceConstants.FLASH)
+        @Property
+        private String rte;
+    ]]></p:javacode>
+    
+</html>

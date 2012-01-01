@@ -1,0 +1,82 @@
+<html t:type="componentDemoLayout" title="Rich Text Editor demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page displays a basic RichTextEditor with a new custom button.<br/>
+		The Javascript handler <b>beforeRenderRichTextEditor</b> is used to add a new button to the default toolbar.<br /><br />
+		
+		In this example, we create a new button used to adding a fullscreen feature.<br />
+		The new button is added to the textstyle group.<br />
+		Available groups are : alignment, indentlist, undoredo, parastyle, and textstyle.<br />
+		Notice, the style used to display the new button, and the javascript fullscreenClick event used to handle the state of the button. <br />
+		More informations on the YUI documentation (for a full sample, see <a href="http://developer.yahoo.com/yui/examples/editor/code_editor.html" target="_blank">http://developer.yahoo.com/yui/examples/editor/code_editor.html</a>).<br />
+   </p:description>
+
+	<p:code>
+	
+	  <style type="text/css">
+          .exanpe-rte .yui-skin-sam .yui-toolbar-container .yui-toolbar-fullscreen span.yui-toolbar-icon {
+              background-image: url("/img/rte/fullscreen.gif");
+              background-position: 1px 0;
+              left: 7px;
+              top: 4px;
+          }
+	  </style> 	
+	
+        <t:form>
+            <t:textarea t:id="rte" value="rte" t:mixins="exanpe/RichTextEditor" t:title="literal:Rich Text Editor">
+            </t:textarea>
+            <t:submit/>
+            <br />
+            <p>Submitted text :</p>
+            <t:outputraw value="rte" />
+        </t:form>
+        
+        <script type="text/javascript">
+            YAHOO.util.Event.onDOMReady(function(){
+                rte.beforeRenderRichTextEditor = function() {
+                	var fullscreenButton = {type: 'push', label: 'Fullscreen', value: 'fullscreen'
+                };
+                rte.getToolbar().addButtonToGroup(fullscreenButton, 'textstyle');
+ 		       
+                var isFull = false;
+                var defaults = {};
+                defaults.width = rte.getConfig().width;
+                rte.getToolbar().on('fullscreenClick', function(ev) {
+                    var container = rte.getContainer();
+                    if (isFull === false) {
+                        isFull = true; // Make it full screen
+                        YAHOO.util.Dom.setStyle(container, 'position', 'absolute');
+                        YAHOO.util.Dom.setStyle(container, 'backgroundColor', 'white');
+                        YAHOO.util.Dom.setStyle(container, 'top', '0');
+                        YAHOO.util.Dom.setStyle(container, 'left', '0');
+                        YAHOO.util.Dom.setStyle(container, 'width', YAHOO.util.Dom.getClientWidth() + 'px');
+                        YAHOO.util.Dom.setStyle(container, 'height', YAHOO.util.Dom.getClientHeight() + 'px');
+                        scroll(0,0);
+                    } else {
+                        isFull = false; // Make it normal again
+                        YAHOO.util.Dom.setStyle(container, 'position', 'static');
+                        YAHOO.util.Dom.setStyle(container, 'backgroundColor', '');
+                        YAHOO.util.Dom.setStyle(container, 'top', '');
+                        YAHOO.util.Dom.setStyle(container, 'left', '');
+                        YAHOO.util.Dom.setStyle(container, 'width', defaults.width);
+                        YAHOO.util.Dom.setStyle(container, 'height', '');
+	                }
+	                return false;
+		        }, rte, true);	 		       
+ 		       
+			};
+		});
+      </script>	
+        
+	</p:code>
+    
+    <p:javacode><![CDATA[
+        @Persist(PersistenceConstants.FLASH)
+        @Property
+        private String rte;
+    ]]></p:javacode>
+    
+</html>

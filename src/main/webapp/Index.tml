@@ -114,6 +114,15 @@
 					<li><t:pagelink page="components/passwordStrengthChecker/example2">A Server-side example</t:pagelink></li>
 				</ul>
 			</li>
+			<li><b>Rich Text Editor</b>
+				<ul>
+					<li><t:pagelink page="components/richTextEditor/example1">A basic Rich Text Editor</t:pagelink></li>
+					<li><t:pagelink page="components/richTextEditor/example2">A Rich Text Editor with defaults labels overriden</t:pagelink></li>
+					<li><t:pagelink page="components/richTextEditor/example3">Filtering the default toolbar with exclude parameter</t:pagelink></li>
+					<li><t:pagelink page="components/richTextEditor/example4">Building a custom toolbar with include parameter</t:pagelink></li>
+					<li><t:pagelink page="components/richTextEditor/example5">Create a new button for a custom feature</t:pagelink></li>
+				</ul>
+			</li>			
 			<li><b>Secure Password</b>
 				<ul>
 					<li><t:pagelink page="components/securePassword/example1">A basic Secure Password</t:pagelink></li>

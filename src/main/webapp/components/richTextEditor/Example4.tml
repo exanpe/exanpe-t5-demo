@@ -1,0 +1,34 @@
+<html t:type="componentDemoLayout" title="Rich Text Editor demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This example show how to use <b>include</b> parameter with the RichTextEditor mixin.<br/>
+   		This parameter is used as a comma-separated list of button names to be retained for Rich Text Editor toolbar.<br />
+   		In this example, we build a custom toolbar with only bold, italic, underline, justifyleft, justifycenter, justifyright buttons.<br />
+   		Notice the <b>separator</b> button name used to add a separator between buttons.<br /><br />
+
+   		Available button names are: <br />
+        bold, italic, underline, justifyleft, justifycenter, justifyright, createlink, undo, redo, insertunorderedlist, insertorderedlist, heading, forecolor, backcolor and separator.<br />
+   </p:description>
+
+	<p:code>
+        <t:form>
+            <t:textarea t:id="rte" value="rte" t:mixins="exanpe/RichTextEditor" t:title="literal:Rich Text Editor" 
+                        t:include="bold, italic, underline, separator, justifyleft, justifycenter, justifyright">
+            </t:textarea>
+            <t:submit/>
+            <br />
+            <p>Submitted text :</p>
+            <t:outputraw value="rte" />
+        </t:form>
+	</p:code>
+    
+    <p:javacode><![CDATA[
+        @Persist(PersistenceConstants.FLASH)
+        @Property
+        private String rte;
+    ]]></p:javacode>
+    
+</html>

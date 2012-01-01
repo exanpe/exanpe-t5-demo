@@ -1,0 +1,30 @@
+<html t:type="componentDemoLayout" title="Rich Text Editor demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page displays a basic RichTextEditor.<br/>
+   		This mixin has to be attached to a TextArea component.<br/>
+   		It is bound to a Page variable to submit the value (parameter <b>value</b>).<br/>
+   		It has to be enclosed inside a t:form component.
+   </p:description>
+
+	<p:code>
+        <t:form>
+            <t:textarea t:id="rte" value="rte" t:mixins="exanpe/RichTextEditor" t:title="literal:Rich Text Editor">
+            </t:textarea>
+            <t:submit/>
+            <br />
+            <p>Submitted text :</p>
+            <t:outputraw value="rte" />
+        </t:form>
+	</p:code>
+    
+    <p:javacode><![CDATA[
+        @Persist(PersistenceConstants.FLASH)
+        @Property
+        private String rte;
+    ]]></p:javacode>
+    
+</html>
