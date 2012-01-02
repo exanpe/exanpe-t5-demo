@@ -1,0 +1,28 @@
+<html t:type="componentDemoLayout" title="Google Map demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page displays a Google Map with Polyline.<br/>
+   		<b>gmapPolyPoint</b> component is used to add a point for drawing a polyline.<br /><br />
+   		Note the following specific parameters of the component gmap: polyStrokeColor, polyStrokeWeight, and polyStrokeOpacity.
+   		<ul>
+   			<li><b>polyStrokeColor</b> is used to specify the hexadecimal HTML color of the lines</li>
+   			<li><b>polyStrokeWeight</b> is used to specify the weight of the lines in pixels</li>
+   			<li><b>polyStrokeOpacity</b> is used to specify the opacity of the lines</li>
+   		</ul> 
+   </p:description>
+
+	<p:code>
+        <ex:gmap t:id="map1" latitude="48.8577" longitude="2.295" 
+                 mapType="hybrid" draggable="false" zoom="13"
+                 polyStrokeColor="#ff0000" polyStrokeWeight="5" polyStrokeOpacity="0.8">
+            <ex:gmapPolyPoint latitude="48.871123" longitude="2.316306" />
+            <ex:gmapPolyPoint latitude="48.867781" longitude="2.313982" />
+    	    <ex:gmapPolyPoint latitude="48.870812" longitude="2.303081" />
+    	    <ex:gmapPolyPoint latitude="48.8577" longitude="2.295" />
+        </ex:gmap>
+	</p:code>
+ 
+</html>

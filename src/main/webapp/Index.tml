@@ -85,12 +85,24 @@
 					<li><t:pagelink page="components/dialog/example5">A Dialog with rich and dynamic content</t:pagelink></li>
 				</ul>
 			</li>
+			<li><b>Google Map</b><img src="${neww}" title="New feature"/>
+				<ul>
+					<li><t:pagelink page="components/googleMap/example1">A basic Google Map</t:pagelink></li>
+					<li><t:pagelink page="components/googleMap/example2">A Google Map with some markers</t:pagelink></li>
+					<li><t:pagelink page="components/googleMap/example3">Google Map and Polyline</t:pagelink></li>
+					<li><t:pagelink page="components/googleMap/example4">Google Map and Polygon</t:pagelink></li>
+					<li><t:pagelink page="components/googleMap/example5">A Google Map with both Marker and Polyline</t:pagelink></li>
+				</ul>
+			</li>
 			<li><b>Hideable Panel</b>
 				<ul>
 					<li><t:pagelink page="components/hideablePanel/example1">A basic Hideable Panel</t:pagelink></li>
 					<li><t:pagelink page="components/hideablePanel/example2">A Hideable Panel with some customing and JavaScript interaction</t:pagelink></li>
 				</ul>
 			</li>
+		</ul>
+	</td><td width="50%" style="border-left:1px solid silver">	
+		<ul>
 			<li><b>List Sorter</b><img src="${neww}" title="New feature"/>
 				<ul>
 					<li><t:pagelink page="components/listSorter/example1" context="literal:reset">A standard ListSorter</t:pagelink></li>
@@ -104,17 +116,14 @@
 					<li><t:pagelink page="components/menu/example3">A presentation of all MenuItem features</t:pagelink></li>
 					<li><t:pagelink page="components/menu/example4">The Menu component, displayed on click</t:pagelink></li>
 				</ul>
-			</li>
-		</ul>
-	</td><td width="50%" style="border-left:1px solid silver">	
-		<ul>
+			</li>		
 			<li><b>Password Strength Checker</b>
 				<ul>
 					<li><t:pagelink page="components/passwordStrengthChecker/example1">A Client-side example</t:pagelink></li>
 					<li><t:pagelink page="components/passwordStrengthChecker/example2">A Server-side example</t:pagelink></li>
 				</ul>
 			</li>
-			<li><b>Rich Text Editor</b>
+			<li><b>Rich Text Editor</b><img src="${neww}" title="New feature"/>
 				<ul>
 					<li><t:pagelink page="components/richTextEditor/example1">A basic Rich Text Editor</t:pagelink></li>
 					<li><t:pagelink page="components/richTextEditor/example2">A Rich Text Editor with defaults labels overriden</t:pagelink></li>

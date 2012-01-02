@@ -1,0 +1,17 @@
+<html t:type="componentDemoLayout" title="Google Map demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page displays a basic Google Map.<br/>
+   		This example displays a simple Map, centered with <b>latitude</b> and <b>longitude</b> parameters.<br />
+   		Notice the <b>mapType</b> parameter who defines the displayed map type.<br />
+   		Available values are : ROADMAP, SATELLITE, HYBRID and TERRAIN.<br />
+   </p:description>
+
+	<p:code>
+        <ex:gmap t:id="map1" latitude="48.869722" longitude="2.3075" mapType="terrain" />
+	</p:code>
+    
+</html>
