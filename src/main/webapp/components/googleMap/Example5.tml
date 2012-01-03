@@ -1,0 +1,32 @@
+<html t:type="componentDemoLayout" title="Google Map demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page displays a Google Map with both Markers and Polyline.<br/>
+   		<b>gmapPolyPoint</b> and <b>gmapMarkercomponent</b> components can be used together.<br /><br />
+   </p:description>
+
+	<p:code>
+        <ex:gmap t:id="map1" latitude="48.868582" longitude="2.311285" 
+                 mapType="satellite" zoom="14"
+                 polyStrokeColor="#f1ab00" polyStrokeWeight="5">
+            <ex:gmapMarker latitude="48.873494" longitude="2.295964" 
+                           title="literal:Start" icon="context:img/gmap/marker_greenA.png" />
+            <ex:gmapPolyPoint latitude="48.873494" longitude="2.295964" />
+    	    <ex:gmapPolyPoint latitude="48.868978" longitude="2.310083" />
+    	    <ex:gmapPolyPoint latitude="48.87053" longitude="2.31313" />
+    	    <ex:gmapPolyPoint latitude="48.871744" longitude="2.31416" />
+    	    <ex:gmapPolyPoint latitude="48.871179" longitude="2.316177" />
+    	    <ex:gmapPolyPoint latitude="48.870361" longitude="2.317593" />
+    	    <ex:gmapPolyPoint latitude="48.869119" longitude="2.320468" />
+    	    <ex:gmapPolyPoint latitude="48.868413" longitude="2.323258" />
+    	    <ex:gmapPolyPoint latitude="48.866832" longitude="2.322142" />
+    	    <ex:gmapPolyPoint latitude="48.866324" longitude="2.323387" />
+    	    <ex:gmapMarker latitude="48.866324" longitude="2.323387" 
+    	                   title="literal:End" icon="context:img/gmap/marker_greenB.png"/>
+        </ex:gmap>
+	</p:code>
+ 
+</html>

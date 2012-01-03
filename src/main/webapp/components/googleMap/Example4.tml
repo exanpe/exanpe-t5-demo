@@ -1,0 +1,20 @@
+<html t:type="componentDemoLayout" title="Google Map demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page displays a Google Map with Polygon.<br/>
+   		<b>gmapPolyPoint</b> component can be used with <b>polygon</b> parameter for drawing a polygon.<br /><br />
+   </p:description>
+
+	<p:code>
+        <ex:gmap t:id="map1" latitude="48.868808" longitude="2.304032" 
+                 mapType="roadmap" zoom="14" polygon="true">
+            <ex:gmapPolyPoint latitude="48.871913" longitude="2.30077" />
+    	    <ex:gmapPolyPoint latitude="48.864687" longitude="2.301462" />
+    	    <ex:gmapPolyPoint latitude="48.869034" longitude="2.309997" />
+        </ex:gmap>
+	</p:code>
+ 
+</html>
