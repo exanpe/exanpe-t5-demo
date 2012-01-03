@@ -1,0 +1,65 @@
+<html t:type="componentDemoLayout" title="LocaleSession demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+   		This page displays the LocaleSession usage.<br/>
+   		You can switch your language by clicking any of the link. The language will be stored in session.<br/>
+   		
+   		Notice : This feature have to be specifically enabled in your Module class. Have a look at the documentation for more details.
+   </p:description>
+
+	<p:code>
+		<t:actionlink t:id="fr">Switch language to "fr"</t:actionlink><br/>
+		
+		<t:actionlink t:id="en">Switch language to "en"</t:actionlink><br/><br/>
+		
+ 	Message : ${message:hello} !!
+	</p:code>
+    
+    <p:javaCode><![CDATA[
+	public class Example1
+	{
+	    @Inject
+	    private LocaleSessionService localeSessionService;
+	
+	    void onActionFromFr()
+	    {
+	        localeSessionService.setLocale(Locale.FRANCE);
+	    }
+	
+	    void onActionFromEn()
+	    {
+	        localeSessionService.setLocale("en");
+	    }
+	}
+	
+	Module class : 
+	public static void contributeApplicationDefaults(MappedConfiguration<String, String> configuration)
+    {
+       	...
+        configuration.add(SymbolConstants.SUPPORTED_LOCALES, "en,fr");
+        ...
+    }
+    ]]></p:javaCode>
+    
+     <p:notice>
+		These keys are defined in several i18n property file :<br/><br/>
+		
+		Example1.properties
+		<t:highlightBody type="ini">
+			hello=Default language, nothing set
+		</t:highlightBody>
+		
+		Example1_fr_FR.properties
+		<t:highlightBody type="ini">
+			hello=Bonjour à vous
+		</t:highlightBody>
+		
+		Example1_en.properties
+		<t:highlightBody type="ini">
+			hello=Hello to you !
+		</t:highlightBody>
+	</p:notice>
+</html>

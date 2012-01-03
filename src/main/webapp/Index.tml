@@ -97,6 +97,11 @@
 					<li><t:pagelink page="components/listSorter/example2" context="literal:reset">A ListSorter with Ajax feature support</t:pagelink></li>
 				</ul>
 			</li>
+			<li><b>LocaleSession</b><img src="${neww}" title="New feature"/>
+				<ul>
+					<li><t:pagelink page="components/localeSession/example1">The LocaleSession usage in action</t:pagelink></li>
+				</ul>
+			</li>
 			<li><b>MenuBar / Menu</b>
 				<ul>
 					<li><t:pagelink page="components/menu/example1">A basic one level MenuBar</t:pagelink></li>

@@ -32,6 +32,7 @@ import fr.exanpe.t5.demo.encoders.CityEncoder;
 import fr.exanpe.t5.demo.encoders.CountryEncoder;
 import fr.exanpe.t5.lib.exception.AuthorizeException;
 import fr.exanpe.t5.lib.internal.contextpagereset.ContextPageResetFilter;
+import fr.exanpe.t5.lib.internal.localesession.LocaleSessionRequestFilter;
 import fr.exanpe.t5.lib.services.ExanpeLibraryModule;
 
 /**
@@ -62,7 +63,7 @@ public class AppModule
         // you can extend this list of locales (it's a comma separated series of locale names;
         // the first locale name is the default when there's no reasonable match).
 
-        configuration.add(SymbolConstants.SUPPORTED_LOCALES, "en");
+        configuration.add(SymbolConstants.SUPPORTED_LOCALES, "en,fr");
 
         // The factory default is true but during the early stages of an application
         // overriding to false is a good idea. In addition, this is often overridden
@@ -185,5 +186,6 @@ public class AppModule
     public void contributeComponentRequestHandler(OrderedConfiguration<ComponentRequestFilter> configuration)
     {
         configuration.addInstance("ContextPageResetFilter", ContextPageResetFilter.class);
+        configuration.addInstance("LocaleSessionFilter", LocaleSessionRequestFilter.class);
     }
 }
