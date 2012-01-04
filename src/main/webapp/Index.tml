@@ -92,6 +92,7 @@
 					<li><t:pagelink page="components/googleMap/example3">Google Map and Polyline</t:pagelink></li>
 					<li><t:pagelink page="components/googleMap/example4">Google Map and Polygon</t:pagelink></li>
 					<li><t:pagelink page="components/googleMap/example5">A Google Map with both Marker and Polyline</t:pagelink></li>
+					<li><t:pagelink page="components/googleMap/example6">Google Maps API for Business</t:pagelink></li>
 				</ul>
 			</li>
 			<li><b>Hideable Panel</b>

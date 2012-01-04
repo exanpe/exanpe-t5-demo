@@ -1,0 +1,27 @@
+<html t:type="componentDemoLayout" title="Google Map demo"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter"
+      xmlns:ex="tapestry-library:exanpe">
+
+   <p:description>
+		In order to access the special features of Google Maps API for Business, you must provide a valid client ID.<br />
+		For that, you have to contribute ApplicationDefaults and override Exanpe symbol: <b>GMAP_V3_BUSINESS_CLIENT_ID</b><br />
+		Notice also the <b>secure</b> parameter that allow to access API in HTTPS.<br />
+		More information on configuring Tapestry symbols here : <a href="http://tapestry.apache.org/symbols.html" target="_blank">http://tapestry.apache.org/symbols.html</a>
+   </p:description>
+
+	<p:code>
+        <ex:gmap t:id="map1" latitude="48.869722" longitude="2.3075" secure="true" />
+	</p:code>
+    
+    <p:javacode><![CDATA[
+    // AppModule.java
+    
+    public static void contributeApplicationDefaults(MappedConfiguration<String, String> configuration)
+    {
+        ...
+        // Google Maps API for Business configuration
+        configuration.add(ExanpeSymbols.GMAP_V3_BUSINESS_CLIENT_ID, "gme-your-client-id");
+    }
+    ]]></p:javacode>
+</html>
