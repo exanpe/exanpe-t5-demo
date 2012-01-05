@@ -1,4 +1,4 @@
-<html t:type="componentDemoLayout" title="Border demo"
+<html t:type="componentDemoLayout" title="Menu demo"
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
       xmlns:p="tapestry:parameter"
       xmlns:ex="tapestry-library:exanpe">
