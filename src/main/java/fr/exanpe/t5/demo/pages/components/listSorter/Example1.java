@@ -7,7 +7,6 @@ import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 
 import fr.exanpe.t5.demo.data.User;
-import fr.exanpe.t5.lib.annotation.ContextPageReset;
 
 public class Example1
 {
@@ -22,12 +21,11 @@ public class Example1
     {
         if (list == null)
         {
-            cpr();
+            init();
         }
     }
 
-    @ContextPageReset
-    void cpr()
+    void init()
     {
         list = new ArrayList<User>();
         list.add(createUser(1, "John", "Smith", 34));
