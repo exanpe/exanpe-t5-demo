@@ -1,6 +1,8 @@
 package fr.exanpe.t5.demo.data;
 
-public class City
+import java.io.Serializable;
+
+public class City implements Serializable
 {
     private String id;
     private String name;

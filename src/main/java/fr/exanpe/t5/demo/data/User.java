@@ -1,8 +1,10 @@
 package fr.exanpe.t5.demo.data;
 
+import java.io.Serializable;
+
 import org.apache.tapestry5.beaneditor.NonVisual;
 
-public class User
+public class User implements Serializable
 {
     @NonVisual
     private long id;
