@@ -28,9 +28,15 @@
 	</p:code>
     
     <p:notice>
-tour-eiffel-info=&lt;h4&gt;Eiffel Tower&lt;/h4&gt;Parc du Champ de Mars &lt;br /&gt;5 Avenue Anatole France 75007 Paris <br />
-la-duree-title=La Durée<br />
-metro-title=Champs-Élysées Metro<br />
-metro-icon=context:img/gmap/metro.png <br />   
+    
+    These keys are defined in the property file of the current page: <br/><br/>
+	
+	Example2.properties :
+		<t:highlightBody type="ini">
+tour-eiffel-info=&lt;h4&gt;Eiffel Tower&lt;/h4&gt;Parc du Champ de Mars &lt;br /&gt;5 Avenue Anatole France 75007 Paris
+la-duree-title=La Durée
+metro-title=Champs-Élysées Metro
+metro-icon=context:img/gmap/metro.png
+		</t:highlightBody>   
     </p:notice>
 </html>

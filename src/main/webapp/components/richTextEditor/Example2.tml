@@ -33,8 +33,13 @@
     ]]></p:javacode>
     
     <p:notice>
-bold=Gras<br />
-italic=Italique<br />
-underline=Souligné<br /> 
+    These keys are defined in the property file of the current page: <br/><br/>
+	
+	Example2.properties :
+		<t:highlightBody type="ini">
+bold=Gras
+italic=Italique
+underline=Souligné
+		</t:highlightBody> 
     </p:notice>    
 </html>

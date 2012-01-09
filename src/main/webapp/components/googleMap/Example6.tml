@@ -15,7 +15,7 @@
 	</p:code>
     
     <p:javacode><![CDATA[
-    // AppModule.java
+    XXXModule.java : 
     
     public static void contributeApplicationDefaults(MappedConfiguration<String, String> configuration)
     {

@@ -13,7 +13,7 @@
                  mapType="satellite" zoom="14"
                  polyStrokeColor="#f1ab00" polyStrokeWeight="5">
             <ex:gmapMarker latitude="48.873494" longitude="2.295964" 
-                           title="literal:Start" icon="context:img/gmap/marker_greenA.png" />
+                           info="literal:Start" title="literal:Start" icon="context:img/gmap/marker_greenA.png" />
             <ex:gmapPolyPoint latitude="48.873494" longitude="2.295964" />
     	    <ex:gmapPolyPoint latitude="48.868978" longitude="2.310083" />
     	    <ex:gmapPolyPoint latitude="48.87053" longitude="2.31313" />
@@ -25,7 +25,7 @@
     	    <ex:gmapPolyPoint latitude="48.866832" longitude="2.322142" />
     	    <ex:gmapPolyPoint latitude="48.866324" longitude="2.323387" />
     	    <ex:gmapMarker latitude="48.866324" longitude="2.323387" 
-    	                   title="literal:End" icon="context:img/gmap/marker_greenB.png"/>
+    	                   info="literal:End" title="literal:End" icon="context:img/gmap/marker_greenB.png"/>
         </ex:gmap>
 	</p:code>
  
