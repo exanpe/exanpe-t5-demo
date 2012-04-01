@@ -23,8 +23,12 @@
             <ex:gmapMarker t:id="metro" latitude="48.867781" longitude="2.313982" />
     	    <ex:gmapMarker title="la-duree-title" latitude="48.870812" longitude="2.303081" info="Best macarons in Paris." />
     	    <ex:gmapMarker title="literal:Eiffel Tower" latitude="48.8577" longitude="2.295" 
-    	                   icon="context:img/gmap/tour-eiffel.png"  info="message:tour-eiffel-info" />
-            <ex:gmapMarker title="Arc De Triumph" latitude="48.87389" longitude="2.29500">
+    	                   icon="context:img/gmap/tour-eiffel.png">
+    	    	<p:info>
+    	    		<t:outputraw value="message:tour-eiffel-info" />
+    	    	</p:info>
+    	    </ex:gmapMarker>
+            <ex:gmapMarker title="literal:Arc De Triumph" latitude="48.87389" longitude="2.29500">
             	<p:info>
             		<b>Arc De Triumph</b><br />
             		<div>${arcDeTriumphDescription}</div>
